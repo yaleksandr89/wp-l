@@ -267,3 +267,11 @@ add_action('phpmailer_init', static function (PHPMailer $phpmailer) {
     $phpmailer->From = SMTP_FROM;
     $phpmailer->FromName = SMTP_NAME;
 });
+
+// Ограничение количества ревизий
+if ( ! defined( 'WP_POST_REVISIONS' ) ) {
+    define( 'WP_POST_REVISIONS', 5 );
+}
+
+// Отключение возможность редактировать файлы в админке для тем, плагинов
+define( 'DISALLOW_FILE_EDIT', true );
