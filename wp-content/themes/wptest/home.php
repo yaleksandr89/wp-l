@@ -52,40 +52,17 @@ get_header(); ?>
                 </article>
             </div>
         </main>
-        <aside class="layout-col layout-col-aside">
-            <div class="aside-box">
-                <div class="tw-wrapper">
-                    <div class="tw-inner">
-                        <div class="tw-text">
-                            <span>Free Wood Design PSD Template. For more freebies and photoshop tutorials follow @webdesignfan.</span>
-                        </div>
-                        <div class="tw-follow">
-                            <span>Follow Us on Twitter</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="aside-box">
-                <div class="h2">Categories</div>
-                <ul class="secondery-navigation">
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Web Apps</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Print Design</a></li>
-                    <li><a href="#">Graphic Design</a></li>
-                    <li><a href="#">Design Partners</a></li>
-                    <li><a href="#">Online Shops</a></li>
-                    <li><a href="#">Online Marketing</a></li>
-                </ul>
-            </div>
-            <div class="aside-box">
-                <div class="h2">Contact Us</div>
-                <ul class="contacts-list">
-                    <li>E-mail: hello@wp.dmitrylavrik.ru</li>
-                    <li>Phone: +111 111111 11 11</li>
-                    <li>Twitter: @noooooooooootwitter</li>
-                </ul>
-            </div>
-        </aside>
+        <?php if (is_active_sidebar('sidebar_main_page')) : ?>
+            <aside class="layout-col layout-col-aside">
+                <?php
+                // manual: https://stackoverflow.com/questions/16885027/wordpress-how-to-add-class-to-ul-of-sidebar-widget
+                ob_start();
+                dynamic_sidebar('sidebar_main_page');
+                $sidebar = ob_get_clean();
+                $sidebar_corrected_ul = str_replace("<ul>", '<ul class="secondery-navigation">', $sidebar);
+                echo $sidebar_corrected_ul;
+                ?>
+            </aside>
+        <?php endif; ?>
     </div>
 <?php get_footer();

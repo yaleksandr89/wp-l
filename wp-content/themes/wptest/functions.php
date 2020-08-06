@@ -87,16 +87,18 @@ add_filter('nav_menu_link_attributes', static function ($attributes, $item, $arg
 |--------------------------------------------------------------------------
 */
 add_action('widgets_init', static function () {
+    // Home page widgets
     register_sidebar([
-        'name' => 'Боковая колонка для постов',
-        'id' => 'sidebar_post_single',
-        'description' => 'Выводится только на странице одного поста',
+        'name' => 'Боковая колонка для главной',
+        'id' => 'sidebar_main_page',
+        'description' => 'Выводится только на главной странице',
         'class' => '',
-        'before_widget' => '<div class="widget %2$s">',
+        'before_widget' => '<div class="aside-box">',
         'after_widget' => '</div>',
-        'before_title' => '<div class="widget_title">',
+        'before_title' => '<div class="h2">',
         'after_title' => '</div>'
     ]);
+    // Footer widgets
     register_sidebar([
         'name' => 'Подвал: левая колонка',
         'id' => 'sidebar_footer_left',
