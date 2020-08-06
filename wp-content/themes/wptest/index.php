@@ -10,24 +10,17 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <?php wp_head(); ?>
-</head>
-<body>
-<header>
-    <div class="container">Header</div>
-</header>
-<main>
-    <div class="container">Main</div>
-</main>
-<footer>
-    <div class="container">Footer</div>
-</footer>
-</body>
-</html>
+<?php get_header(); ?>
+    <section class="main-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="wrapper mt-5 text-center">
+                        <h1>404<code>(index.php)</code></h1>
+                        <h2>Страница не найдена<code>(index.php)</code></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php get_footer(); ?>

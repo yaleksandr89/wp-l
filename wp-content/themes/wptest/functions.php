@@ -9,6 +9,9 @@
 |--------------------------------------------------------------------------
 */
 include_once __DIR__ . '/helpers/connect.php';
+include_once __DIR__ . '/includes/system.php';
+include_once __DIR__ . '/includes/constants.php';
+include_once __DIR__ . '/includes/styles-scripts.php';
 
 /*
 |--------------------------------------------------------------------------
