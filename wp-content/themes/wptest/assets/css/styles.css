@@ -66,7 +66,7 @@ em{
 	width: 25px;
 	height: 25px;
 	margin-right: 5px;
-	background: url(../img/logo.png) no-repeat;
+	background: url(../images/logo.png) no-repeat;
 	background-size: 100%;
 }
 
@@ -169,7 +169,7 @@ em{
 }
 
 .tw-inner::after{
-	content: url(../img/twitter-bird.png);
+	content: url(../images/twitter-bird.png);
 	margin-left:  2%;
 	width: 13%;
 	max-width: 50px;

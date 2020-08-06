@@ -18,6 +18,23 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<header>
-    <div class="container">Header</div>
-</header>
+<div class="wrapper">
+    <header>
+        <div class="header-top">
+            <div class="header-logo">
+                <div class="title">Wood Design</div>
+            </div>
+            <?php
+            wp_nav_menu( [
+                'theme_location'    => 'header',
+                'menu'              => 'Меню в Header',
+                'container'         => 'nav',
+                'container_class'   => 'header-menu',
+                'items_wrap'        => '<div class="header-menu-button">Menu</div><ul class="header-menu-list">%3$s</ul>',
+            ]);
+            ?>
+        </div>
+        <div class="header-bottom">
+            Wood Design is a modern web & graphic design studio in Europe. We create beautiful things for web and print. You can see our great work examples in <a href="portfolio.html">Portfolio</a>. If you need a professional design services <a href="contacts.html">Contact</a> us. We would love to work with you.
+        </div>
+    </header>
