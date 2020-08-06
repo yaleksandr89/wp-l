@@ -1,6 +1,6 @@
 <?php
 /**
- * The single page template file
+ * The category page template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -10,9 +10,5 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 get_header(); ?>
-    <main>
-        <div class="container">
-            <h1><code>single.php</code></h1>
-        </div>
-    </main>
-<?php get_footer(); ?>
+	<h1><code>category.php</code></h1>
+<?php get_footer();

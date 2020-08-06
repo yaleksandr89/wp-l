@@ -15,6 +15,15 @@ include_once __DIR__ . '/includes/styles-scripts.php';
 
 /*
 |--------------------------------------------------------------------------
+| Toggle Admin bar (on/off)
+| url: https://wp-kama.ru/function/show_admin_bar (show_admin_bar())
+|--------------------------------------------------------------------------
+*/
+ add_filter('show_admin_bar', '__return_false'); // turn off
+//add_filter('show_admin_bar', '__return_true'); // turn on
+
+/*
+|--------------------------------------------------------------------------
 | Registers support for new theme features in WP
 | url: https://wp-kama.ru/function/add_theme_support
 |--------------------------------------------------------------------------

@@ -9,10 +9,16 @@
  */
 
 // Версия плагина
-define( 'WP_TEST_THEME_VERSION', '1.0.0' );
-
-// Путь до function.php ...\wp-content\themes\ya\functions.php
-define( 'WP_TEST_THEME_FILE', __FILE__ );
+define( 'WPTEST_THEME_VERSION', '1.0.0' );
 
 // Префикс темы
-define( 'WP_TEST_THEME_PREFIX', 'wp_test_' );
+define( 'WPTEST_THEME_PREFIX', 'wptest_' );
+
+// Путь до CSS
+define('WPTEST_DIR_CSS', get_template_directory_uri() . '/assets/css/');
+
+// Путь до JS
+define('WPTEST_DIR_JS', get_template_directory_uri() . '/assets/js/');
+
+// Путь до Images
+define('WPTEST_DIR_iMAGES', get_template_directory_uri() . '/assets/images/');
