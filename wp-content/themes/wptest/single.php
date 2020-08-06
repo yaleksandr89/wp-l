@@ -10,9 +10,33 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 get_header(); ?>
-    <main>
-        <div class="container">
-            <h1><code>single.php</code></h1>
-        </div>
-    </main>
+    <div class="content-wrapper layout-row">
+        <main class="layout-col layout-col-main">
+            <?php the_post(); ?>
+            <h1><?php the_title() ?></h1>
+            <div class="post-full">
+                <?php the_post_thumbnail('full') ?>
+                <p><?php the_content() ?></p>
+            </div>
+        </main>
+        <aside class="layout-col layout-col-aside">
+            <div class="aside-box">
+                <div class="h2"><?php the_time('j F Y') ?></div>
+                <div class="h2">Author: <?php the_author()?></div>
+            </div>
+            <div class="aside-box">
+                <div class="h2">Post categories</div>
+                <ul class="secondery-navigation">
+                    <li><a href="#">Web Development</a></li>
+                </ul>
+            </div>
+            <div class="aside-box">
+                <div class="h2">Post tags</div>
+                <ul class="secondery-navigation">
+                    <li><a href="#">Tag 1</a></li>
+                    <li><a href="#">Tag 2</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
 <?php get_footer(); ?>

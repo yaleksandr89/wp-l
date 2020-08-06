@@ -87,16 +87,29 @@ add_filter('nav_menu_link_attributes', static function ($attributes, $item, $arg
 |--------------------------------------------------------------------------
 */
 add_action('widgets_init', static function () {
+    // Home page widgets
     register_sidebar([
-        'name' => 'Боковая колонка для постов',
-        'id' => 'sidebar_post_single',
-        'description' => 'Выводится только на странице одного поста',
+        'name' => 'Боковая колонка для главной',
+        'id' => 'sidebar_main_page',
+        'description' => 'Выводится только на главной странице',
         'class' => '',
-        'before_widget' => '<div class="widget %2$s">',
+        'before_widget' => '<div class="aside-box">',
         'after_widget' => '</div>',
-        'before_title' => '<div class="widget_title">',
+        'before_title' => '<div class="h2">',
         'after_title' => '</div>'
     ]);
+    // Single page widgets
+    register_sidebar([
+        'name' => 'Боковая колонка для одиночной',
+        'id' => 'sidebar_single_page',
+        'description' => 'Выводится только на странице одиночной записи',
+        'class' => '',
+        'before_widget' => '<div class="aside-box">',
+        'after_widget' => '</div>',
+        'before_title' => '<div class="h2">',
+        'after_title' => '</div>'
+    ]);
+    // Footer widgets
     register_sidebar([
         'name' => 'Подвал: левая колонка',
         'id' => 'sidebar_footer_left',
@@ -133,3 +146,26 @@ add_filter('widget_text', static function ($widget_content) {
     }
     return $widget_content;
 }, 99);
+
+
+/*
+|--------------------------------------------------------------------------
+| Delete button: "Read more"
+| url: https://pr-cy.ru/qa/question/26300
+|--------------------------------------------------------------------------
+*/
+add_filter('the_content_more_link', '__return_empty_string');
+
+/*
+|--------------------------------------------------------------------------
+| Customize pagination
+| url: https://wp-kama.ru/function/the_posts_pagination
+|--------------------------------------------------------------------------
+*/
+add_filter('navigation_markup_template', static function ($template, $class) {
+    return '
+	<nav class="navigation %1$s" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>    
+	';
+}, 10, 2);

@@ -10,82 +10,49 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 get_header(); ?>
+    <div class="header-bottom">
+        Wood Design is a modern web & graphic design studio in Europe. We create beautiful things for web and print.
+        You can see our great work examples in <a href="/portfolio">Portfolio</a>. If you need a professional
+        design services <a href="/contacts">Contact</a> us. We would love to work with you.
+    </div>
     <div class="content-wrapper layout-row">
         <main class="layout-col layout-col-main">
             <h1>Wood design - home page</h1>
             <div class="posts-flow layout-row">
-                <article class="post-card layout-col">
-                    <a href="post-sample.html" class="post-card-link">
-                        <img src="<?= WPTEST_DIR_iMAGES ?>1st_Design.jpg" alt="1st Design">
-                    </a>
-                    <h2 class="post-card-title">Fictional Design Studio Layout</h2>
-                    <div class="post-card-intro">This work description goes here. Just simple and short text about this
-                        work.
-                    </div>
-                </article>
-                <article class="post-card layout-col">
-                    <a href="post-sample.html" class="post-card-link">
-                        <img src="<?= WPTEST_DIR_iMAGES ?>2nd_Design.png" alt="1st Design">
-                    </a>
-                    <h2 class="post-card-title">Creative Mouse Design</h2>
-                    <div class="post-card-intro">This work description goes here. Just simple and short text about this
-                        work.
-                    </div>
-                </article>
-                <article class="post-card layout-col">
-                    <a href="post-sample.html" class="post-card-link">
-                        <img src="<?= WPTEST_DIR_iMAGES ?>3rd_Design.png" alt="1st Design">
-                    </a>
-                    <h2 class="post-card-title">Real Estate Company Layout</h2>
-                    <div class="post-card-intro">This work description goes here. Just simple and short text about this
-                        work.
-                    </div>
-                </article>
-                <article class="post-card layout-col">
-                    <a href="post-sample.html" class="post-card-link">
-                        <img src="<?= WPTEST_DIR_iMAGES ?>4th_Design.png" alt="1st Design">
-                    </a>
-                    <h2 class="post-card-title">Web Design Fan - Blog for designers</h2>
-                    <div class="post-card-intro">This work description goes here. Just simple and short text about this
-                        work.
-                    </div>
-                </article>
-            </div>
-        </main>
-        <aside class="layout-col layout-col-aside">
-            <div class="aside-box">
-                <div class="tw-wrapper">
-                    <div class="tw-inner">
-                        <div class="tw-text">
-                            <span>Free Wood Design PSD Template. For more freebies and photoshop tutorials follow @webdesignfan.</span>
-                        </div>
-                        <div class="tw-follow">
-                            <span>Follow Us on Twitter</span>
-                        </div>
-                    </div>
+                <?php if (have_posts()) : ?>
+                    <?php while (have_posts()) : ?>
+                        <?php the_post() ?>
+                        <article class="post-card layout-col">
+                            <a href="<?php the_permalink(); ?>" class="post-card-link">
+                                <?php the_post_thumbnail() ?>
+                            </a>
+                            <h2 class="post-card-title">
+                                <?php the_title() ?>
+                            </h2>
+                            <div class="post-card-intro">
+                                <?php the_content() ?>
+                            </div>
+                        </article>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <p>Опубликованных записей нет.</p>
+                <?php endif; ?>
+                <div class="pagination">
+                    <?php the_posts_pagination(['prev_next' => false]); ?>
                 </div>
             </div>
-            <div class="aside-box">
-                <div class="h2">Categories</div>
-                <ul class="secondery-navigation">
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Web Apps</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Print Design</a></li>
-                    <li><a href="#">Graphic Design</a></li>
-                    <li><a href="#">Design Partners</a></li>
-                    <li><a href="#">Online Shops</a></li>
-                    <li><a href="#">Online Marketing</a></li>
-                </ul>
-            </div>
-            <div class="aside-box">
-                <div class="h2">Contact Us</div>
-                <ul class="contacts-list">
-                    <li>E-mail: hello@wp.dmitrylavrik.ru</li>
-                    <li>Phone: +111 111111 11 11</li>
-                    <li>Twitter: @noooooooooootwitter</li>
-                </ul>
-            </div>
-        </aside>
+        </main>
+        <?php if (is_active_sidebar('sidebar_main_page')) : ?>
+            <aside class="layout-col layout-col-aside">
+                <?php
+                // manual: https://stackoverflow.com/questions/16885027/wordpress-how-to-add-class-to-ul-of-sidebar-widget
+                ob_start();
+                dynamic_sidebar('sidebar_main_page');
+                $sidebar = ob_get_clean();
+                $sidebar_corrected_ul = str_replace("<ul>", '<ul class="secondery-navigation">', $sidebar);
+                echo $sidebar_corrected_ul;
+                ?>
+            </aside>
+        <?php endif; ?>
     </div>
 <?php get_footer();
