@@ -14,42 +14,27 @@ get_header(); ?>
         <main class="layout-col layout-col-main">
             <h1>Wood design - home page</h1>
             <div class="posts-flow layout-row">
-                <article class="post-card layout-col">
-                    <a href="post-sample.html" class="post-card-link">
-                        <img src="<?= WPTEST_DIR_iMAGES ?>1st_Design.jpg" alt="1st Design">
-                    </a>
-                    <h2 class="post-card-title">Fictional Design Studio Layout</h2>
-                    <div class="post-card-intro">This work description goes here. Just simple and short text about this
-                        work.
-                    </div>
-                </article>
-                <article class="post-card layout-col">
-                    <a href="post-sample.html" class="post-card-link">
-                        <img src="<?= WPTEST_DIR_iMAGES ?>2nd_Design.png" alt="1st Design">
-                    </a>
-                    <h2 class="post-card-title">Creative Mouse Design</h2>
-                    <div class="post-card-intro">This work description goes here. Just simple and short text about this
-                        work.
-                    </div>
-                </article>
-                <article class="post-card layout-col">
-                    <a href="post-sample.html" class="post-card-link">
-                        <img src="<?= WPTEST_DIR_iMAGES ?>3rd_Design.png" alt="1st Design">
-                    </a>
-                    <h2 class="post-card-title">Real Estate Company Layout</h2>
-                    <div class="post-card-intro">This work description goes here. Just simple and short text about this
-                        work.
-                    </div>
-                </article>
-                <article class="post-card layout-col">
-                    <a href="post-sample.html" class="post-card-link">
-                        <img src="<?= WPTEST_DIR_iMAGES ?>4th_Design.png" alt="1st Design">
-                    </a>
-                    <h2 class="post-card-title">Web Design Fan - Blog for designers</h2>
-                    <div class="post-card-intro">This work description goes here. Just simple and short text about this
-                        work.
-                    </div>
-                </article>
+                <?php if (have_posts()) : ?>
+                    <?php while (have_posts()) : ?>
+                        <?php the_post() ?>
+                        <article class="post-card layout-col">
+                            <a href="<?php the_permalink(); ?>" class="post-card-link">
+                                <?php the_post_thumbnail() ?>
+                            </a>
+                            <h2 class="post-card-title">
+                                <?php the_title() ?>
+                            </h2>
+                            <div class="post-card-intro">
+                                <?php the_content() ?>
+                            </div>
+                        </article>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <p>Опубликованных записей нет.</p>
+                <?php endif; ?>
+                <div class="pagination">
+                    <?php the_posts_pagination(['prev_next' => false]); ?>
+                </div>
             </div>
         </main>
         <?php if (is_active_sidebar('sidebar_main_page')) : ?>

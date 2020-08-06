@@ -135,3 +135,26 @@ add_filter('widget_text', static function ($widget_content) {
     }
     return $widget_content;
 }, 99);
+
+
+/*
+|--------------------------------------------------------------------------
+| Delete button: "Read more"
+| url: https://pr-cy.ru/qa/question/26300
+|--------------------------------------------------------------------------
+*/
+add_filter('the_content_more_link', '__return_empty_string');
+
+/*
+|--------------------------------------------------------------------------
+| Customize pagination
+| url: https://wp-kama.ru/function/the_posts_pagination
+|--------------------------------------------------------------------------
+*/
+add_filter('navigation_markup_template', static function ($template, $class) {
+    return '
+	<nav class="navigation %1$s" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>    
+	';
+}, 10, 2);
