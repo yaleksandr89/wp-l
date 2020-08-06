@@ -259,13 +259,13 @@ em {
 }
 
 .pagination nav a {
-	color: #222222;
+	color: #909090;
     text-decoration: none;
 }
 
 .pagination nav a,
 .pagination nav span {
-    padding: 5px;
+    padding: 10px;
     border: 1px solid rgba(184, 184, 184, 0.5);
     border-radius: 5px;
 
@@ -273,7 +273,7 @@ em {
 
 .pagination nav span {
 	color: #bc8a59;
-    padding: 5px;
+    padding: 10px;
 }
 
 @media screen and (max-width: 900px) {

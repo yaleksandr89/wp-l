@@ -10,6 +10,11 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 get_header(); ?>
+    <div class="header-bottom">
+        Wood Design is a modern web & graphic design studio in Europe. We create beautiful things for web and print.
+        You can see our great work examples in <a href="/portfolio">Portfolio</a>. If you need a professional
+        design services <a href="/contacts">Contact</a> us. We would love to work with you.
+    </div>
     <div class="content-wrapper layout-row">
         <main class="layout-col layout-col-main">
             <h1>Wood design - home page</h1>

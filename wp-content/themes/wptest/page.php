@@ -10,9 +10,11 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 get_header(); ?>
-    <main>
-        <div class="container">
-            <h1><code>page.php</code></h1>
-        </div>
-    </main>
+    <div class="content-wrapper layout-row">
+        <main class="layout-col layout-col-full">
+            <?php the_post(); ?>
+            <h1><?php the_title() ?></h1>
+            <div><?php the_content() ?></div>
+        </main>
+    </div>
 <?php get_footer(); ?>

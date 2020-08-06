@@ -98,6 +98,17 @@ add_action('widgets_init', static function () {
         'before_title' => '<div class="h2">',
         'after_title' => '</div>'
     ]);
+    // Single page widgets
+    register_sidebar([
+        'name' => 'Боковая колонка для одиночной',
+        'id' => 'sidebar_single_page',
+        'description' => 'Выводится только на странице одиночной записи',
+        'class' => '',
+        'before_widget' => '<div class="aside-box">',
+        'after_widget' => '</div>',
+        'before_title' => '<div class="h2">',
+        'after_title' => '</div>'
+    ]);
     // Footer widgets
     register_sidebar([
         'name' => 'Подвал: левая колонка',
