@@ -35,7 +35,7 @@ get_header(); ?>
                         </article>
                     <?php endwhile; ?>
                 <?php else : ?>
-                    <p>Опубликованных записей нет.</p>
+                    <p>Записи отсутствуют.</p>
                 <?php endif; ?>
                 <div class="pagination">
                     <?php the_posts_pagination(['prev_next' => false]); ?>
