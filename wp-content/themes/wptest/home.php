@@ -30,7 +30,7 @@ get_header(); ?>
                                 <?php the_title() ?>
                             </h2>
                             <div class="post-card-intro">
-                                <?php the_content() ?>
+                                <?php the_field('preview_article'); ?>
                             </div>
                         </article>
                     <?php endwhile; ?>

@@ -98,17 +98,6 @@ add_action('widgets_init', static function () {
         'before_title' => '<div class="h2">',
         'after_title' => '</div>'
     ]);
-    // Single page widgets
-    register_sidebar([
-        'name' => 'Боковая колонка для одиночной',
-        'id' => 'sidebar_single_page',
-        'description' => 'Выводится только на странице одиночной записи',
-        'class' => '',
-        'before_widget' => '<div class="aside-box">',
-        'after_widget' => '</div>',
-        'before_title' => '<div class="h2">',
-        'after_title' => '</div>'
-    ]);
     // Footer widgets
     register_sidebar([
         'name' => 'Подвал: левая колонка',
@@ -147,7 +136,28 @@ add_filter('widget_text', static function ($widget_content) {
     return $widget_content;
 }, 99);
 
+/*
+|--------------------------------------------------------------------------
+| Customize posts (use PHP code)
+| use: [startphp]...[/startphp] (can't be used HTML inside shortcode)
+| url: https://biznessystem.ru/ispolnyaemyj-php-kod-v-statyah-i-vidzhetah-wordpress/
+|--------------------------------------------------------------------------
+*/
+function start_php($matches)
+{
+    $inline_execute_output = '';
+    eval('ob_start();' . $matches[1] . '$inline_execute_output = ob_get_clean();');
+    return $inline_execute_output;
+}
 
+function inline_php($content)
+{
+    $content = preg_replace_callback('/\[startphp]((.|\n)*?)\[\/startphp]/', 'start_php', $content);
+    $content = preg_replace('/\[startphp off]((.|\n)*?)\[\/startphp]/', '$1', $content);
+    return $content;
+}
+
+add_filter('the_content', 'inline_php');
 /*
 |--------------------------------------------------------------------------
 | Delete button: "Read more"

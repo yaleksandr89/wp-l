@@ -15,27 +15,35 @@ get_header(); ?>
             <?php the_post(); ?>
             <h1><?php the_title() ?></h1>
             <div class="post-full">
-                <?php the_post_thumbnail('full') ?>
                 <p><?php the_content() ?></p>
             </div>
         </main>
         <aside class="layout-col layout-col-aside">
             <div class="aside-box">
-                <div class="h2"><?php the_time('j F Y') ?></div>
-                <div class="h2">Author: <?php the_author()?></div>
+                <div class="h2">
+                    <?php
+                    $ru_time = get_the_time('Y-m-d H:i:s');
+                    $en_time = get_date_from_gmt($ru_time, 'j F Y');
+                    echo $en_time;
+                    ?>
+                </div>
+                <div class="h2">Author: <?php the_author() ?></div>
             </div>
             <div class="aside-box">
                 <div class="h2">Post categories</div>
                 <ul class="secondery-navigation">
-                    <li><a href="#">Web Development</a></li>
+                    <?php foreach (get_the_category() as $category): ?>
+                        <li>
+                            <a href="<?= esc_url(get_category_link($category)) ?>">
+                                <?= esc_html($category->name) ?>
+                            </a>
+                        </li>
+                    <?php endforeach ?>
                 </ul>
             </div>
             <div class="aside-box">
                 <div class="h2">Post tags</div>
-                <ul class="secondery-navigation">
-                    <li><a href="#">Tag 1</a></li>
-                    <li><a href="#">Tag 2</a></li>
-                </ul>
+                <?php the_tags('<ul class="secondery-navigation"><li>','</li><li>','</li></ul>')?>
             </div>
         </aside>
     </div>
