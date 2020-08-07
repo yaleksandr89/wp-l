@@ -57,6 +57,33 @@ add_action('after_setup_theme', static function () {
 
 /*
 |--------------------------------------------------------------------------
+| Changing the title output
+| url: https://wp-kama.ru/hook/document_title_parts
+|
+| >>> 1 - Deleting the site name at the end of the title (singular page)
+| >>> 2 - Deleting the description site and changing title in the front page
+|--------------------------------------------------------------------------
+*/
+// >>> 1
+add_filter('document_title_parts', static function ($parts) {
+    if (isset($parts['site'])) {
+        unset($parts['site']);
+    }
+    return $parts;
+});
+// >>> 2
+add_filter('document_title_parts', static function ($title) {
+    if (isset($title['tagline'])) {
+        unset($title['tagline']);
+    }
+    if (is_front_page()) {
+        $title['title'] = 'Home';
+    }
+    return $title;
+});
+
+/*
+|--------------------------------------------------------------------------
 | Customize CLASS and ID for the items menu (<li>,<a>)
 | url1: https://wp-kama.ru/function/wp_nav_menu
 | url2: https://wp-kama.ru/hook/nav_menu_item_id

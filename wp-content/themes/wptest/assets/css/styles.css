@@ -139,6 +139,10 @@ em {
     width: calc(100% / 12 * 8 - 30px);
 }
 
+.layout-col-taxonomy-page {
+    width: calc(100% - 30px);
+}
+
 .layout-col-aside {
     width: calc(100% / 12 * 4 - 30px);
     color: #939393;
@@ -259,7 +263,13 @@ em {
 }
 
 .pagination nav a {
-	color: #909090;
+    color: #909090;
+    text-decoration: none;
+}
+
+.pagination nav a:hover {
+    color: #ffffff;
+    background: #bc8a59;
     text-decoration: none;
 }
 
@@ -272,10 +282,22 @@ em {
 }
 
 .pagination nav span {
-	color: #bc8a59;
+    color: #bc8a59;
     padding: 10px;
 }
 
+.taxonomy_page_header {
+    text-align: center;
+}
+
+.header_404,
+.desc_404 {
+    width: 100%;
+    text-align: center;
+}
+.desc_404{
+    margin-bottom: 20px;
+}
 @media screen and (max-width: 900px) {
     .wrapper {
         padding: 0 15px;

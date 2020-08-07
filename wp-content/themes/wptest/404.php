@@ -6,17 +6,20 @@
  */
 get_header();
 ?>
-    <section class="main-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="wrapper mt-5 text-center">
-                        <h1>404</h1>
-                        <h2>Страница не найдена</h2>
-                    </div>
-                </div>
+    <div class="header-bottom">
+        Wood Design is a modern web & graphic design studio in Europe. We create beautiful things for web and print.
+        You can see our great work examples in <a href="/portfolio">Portfolio</a>. If you need a professional
+        design services <a href="/contacts">Contact</a> us. We would love to work with you.
+    </div>
+    <div class="content-wrapper layout-row">
+        <main class="layout-col layout-col-taxonomy-page">
+            <h1 class="header_404">Ошибка 404</h1>
+            <div class="posts-flow layout-row">
+                <p class="desc_404">
+                    Запрашиваемая страница удалена или никогда не существовала.
+                </p>
             </div>
-        </div>
-    </section>
+        </main>
+    </div>
 <?php
 get_footer();
