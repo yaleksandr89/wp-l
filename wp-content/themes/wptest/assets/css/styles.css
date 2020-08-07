@@ -290,6 +290,14 @@ em {
     text-align: center;
 }
 
+.header_404,
+.desc_404 {
+    width: 100%;
+    text-align: center;
+}
+.desc_404{
+    margin-bottom: 20px;
+}
 @media screen and (max-width: 900px) {
     .wrapper {
         padding: 0 15px;
