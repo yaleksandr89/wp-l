@@ -19,7 +19,7 @@ include_once __DIR__ . '/includes/styles-scripts.php';
 | url: https://wp-kama.ru/function/show_admin_bar (show_admin_bar())
 |--------------------------------------------------------------------------
 */
-//add_filter('show_admin_bar', '__return_false'); // turn off
+add_filter('show_admin_bar', '__return_false'); // turn off
 //add_filter('show_admin_bar', '__return_true'); // turn on
 
 /*
@@ -206,3 +206,10 @@ add_filter('navigation_markup_template', static function ($template, $class) {
 	</nav>    
 	';
 }, 10, 2);
+
+//add_filter('category_link', static function($a){
+//    return str_replace( 'blog/', '', $a );
+//}, 99 );
+//add_filter('tag_link', static function($a){
+//    return str_replace( 'blog/', '', $a );
+//}, 99 );
