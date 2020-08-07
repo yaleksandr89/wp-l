@@ -206,3 +206,26 @@ add_filter('navigation_markup_template', static function ($template, $class) {
 	</nav>    
 	';
 }, 10, 2);
+
+/**
+ * Настройка SMTP
+ * @param PHPMailer $phpmailer
+ */
+add_action('phpmailer_init', static function (PHPMailer $phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = SMTP_HOST;
+    $phpmailer->SMTPAuth = SMTP_AUTH;
+    $phpmailer->Port = SMTP_PORT;
+    $phpmailer->Username = SMTP_USER;
+    $phpmailer->Password = SMTP_PASS;
+    $phpmailer->SMTPSecure = SMTP_SECURE;
+    $phpmailer->From = SMTP_FROM;
+    $phpmailer->FromName = SMTP_NAME;
+});
+
+//add_filter('category_link', static function($a){
+//    return str_replace( 'blog/', '', $a );
+//}, 99 );
+//add_filter('tag_link', static function($a){
+//    return str_replace( 'blog/', '', $a );
+//}, 99 );
