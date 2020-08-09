@@ -125,6 +125,17 @@ add_action('widgets_init', static function () {
         'before_title' => '<div class="h2">',
         'after_title' => '</div>'
     ]);
+    // Single post
+    register_sidebar([
+        'name' => 'Боковая колонка для одиночной записи',
+        'id' => 'sidebar_single_page',
+        'description' => 'Выводится только на странице одиночной записи',
+        'class' => '',
+        'before_widget' => '<div class="aside-box">',
+        'after_widget' => '</div>',
+        'before_title' => '<div class="h2">',
+        'after_title' => '</div>'
+    ]);
     // Footer widgets
     register_sidebar([
         'name' => 'Подвал: левая колонка',
@@ -151,10 +162,16 @@ add_action('widgets_init', static function () {
 /*
 |--------------------------------------------------------------------------
 | Customize widgets (use PHP code)
-| url: https://misha.blog/wordpress/php-in-widgets.html
+| Using:
+| 1. begin script %start_PHP%
+| 2. end script %stop_PHP%
+| 3. If in the script use construction '->' (example object->name), instead -> use -&gt;
 |--------------------------------------------------------------------------
 */
 add_filter('widget_text', static function ($widget_content) {
+    // Fix warning (why not do save widget)
+    $widget_content = str_replace(['%start_PHP%', '%stop_PHP%', '-&gt;'], ['<?php', '?>', '->'], $widget_content);
+
     if (strpos($widget_content, '<' . '?') !== false) {
         ob_start();
         eval('?' . '>' . $widget_content);
@@ -167,7 +184,6 @@ add_filter('widget_text', static function ($widget_content) {
 |--------------------------------------------------------------------------
 | Customize posts (use PHP code)
 | use: [startphp]...[/startphp] (can't be used HTML inside shortcode)
-| url: https://biznessystem.ru/ispolnyaemyj-php-kod-v-statyah-i-vidzhetah-wordpress/
 |--------------------------------------------------------------------------
 */
 function start_php($matches)
@@ -185,10 +201,10 @@ function inline_php($content)
 }
 
 add_filter('the_content', 'inline_php');
+
 /*
 |--------------------------------------------------------------------------
 | Delete button: "Read more"
-| url: https://pr-cy.ru/qa/question/26300
 |--------------------------------------------------------------------------
 */
 add_filter('the_content_more_link', '__return_empty_string');
@@ -207,10 +223,12 @@ add_filter('navigation_markup_template', static function ($template, $class) {
 	';
 }, 10, 2);
 
-/**
- * Настройка SMTP
- * @param PHPMailer $phpmailer
- */
+/*
+|--------------------------------------------------------------------------
+| Setting SMTP server
+| url: https://www.kobzarev.com/wordpress/smtp-wordpress/
+|--------------------------------------------------------------------------
+*/
 add_action('phpmailer_init', static function (PHPMailer $phpmailer) {
     $phpmailer->isSMTP();
     $phpmailer->Host = SMTP_HOST;
@@ -222,10 +240,3 @@ add_action('phpmailer_init', static function (PHPMailer $phpmailer) {
     $phpmailer->From = SMTP_FROM;
     $phpmailer->FromName = SMTP_NAME;
 });
-
-//add_filter('category_link', static function($a){
-//    return str_replace( 'blog/', '', $a );
-//}, 99 );
-//add_filter('tag_link', static function($a){
-//    return str_replace( 'blog/', '', $a );
-//}, 99 );

@@ -19,9 +19,18 @@ get_header(); ?>
         <main class="layout-col layout-col-taxonomy-page">
             <h1 class="taxonomy_page_header"><?= get_queried_object()->post_title ?> page</h1>
             <div class="posts-flow layout-row">
+                <?php
+                // manual: https://wp-kama.ru/question/funktsiya-get_posts-i-paginatsiya-kak-podklyuchit
+                global $wp_query;
+                $save_wpq = $wp_query;
+                ?>
+                <?php $wp_query = new WP_Query([
+                    'posts_per_page' => 4,
+                    'paged' => get_query_var('paged') ?: 1
+                ]); ?>
                 <?php if (have_posts()) : ?>
-                    <?php while (have_posts()) : ?>
-                        <?php the_post() ?>
+                    <?php while ($wp_query->have_posts()) : ?>
+                        <?php $wp_query->the_post(); ?>
                         <article class="post-card layout-col">
                             <a href="<?php the_permalink(); ?>" class="post-card-link">
                                 <?php the_post_thumbnail() ?>
@@ -34,12 +43,14 @@ get_header(); ?>
                             </div>
                         </article>
                     <?php endwhile; ?>
+                    <div class="pagination">
+                        <?php the_posts_pagination(['prev_next' => false]); ?>
+                    </div>
                 <?php else : ?>
                     <p>Записи отсутствуют.</p>
                 <?php endif; ?>
-                <div class="pagination">
-                    <?php the_posts_pagination(['prev_next' => false]); ?>
-                </div>
+                <?php wp_reset_postdata(); ?>
+                <?php $wp_query = $save_wpq; ?>
             </div>
         </main>
     </div>
