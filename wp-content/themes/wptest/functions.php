@@ -19,7 +19,7 @@ include_once __DIR__ . '/includes/styles-scripts.php';
 | url: https://wp-kama.ru/function/show_admin_bar (show_admin_bar())
 |--------------------------------------------------------------------------
 */
-add_filter('show_admin_bar', '__return_false'); // turn off
+//add_filter('show_admin_bar', '__return_false'); // turn off
 //add_filter('show_admin_bar', '__return_true'); // turn on
 
 /*
