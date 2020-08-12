@@ -17,7 +17,7 @@ get_header(); ?>
     </div>
     <div class="content-wrapper layout-row">
         <main class="layout-col layout-col-main">
-            <h1>Wood design - home page</h1>
+            <h1><?php echo get_theme_mod( 'header_h1', WPTEST_GET_THE_MOD_DEFAULT ); ?></h1>
             <div class="posts-flow layout-row">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : ?>

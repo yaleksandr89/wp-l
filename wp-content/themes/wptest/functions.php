@@ -12,6 +12,7 @@ include_once __DIR__ . '/helpers/connect.php';
 include_once __DIR__ . '/includes/system.php';
 include_once __DIR__ . '/includes/constants.php';
 include_once __DIR__ . '/includes/styles-scripts.php';
+include_once __DIR__ . '/includes/customizer.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,6 @@ add_action('after_setup_theme', static function () {
     add_theme_support('responsive-embeds');
     // Add support navigation menu
     register_nav_menu('header', 'Меню в шапке');
-    register_nav_menu('footer', 'Меню в подвале');
 });
 
 /*

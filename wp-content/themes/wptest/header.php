@@ -22,7 +22,7 @@
     <header>
         <div class="header-top">
             <div class="header-logo">
-                <div class="title">Wood Design</div>
+                <div class="title"><?php bloginfo('name'); ?></div>
             </div>
             <?php
             wp_nav_menu([
