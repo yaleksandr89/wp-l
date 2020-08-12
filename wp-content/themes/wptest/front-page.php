@@ -11,9 +11,7 @@
  */
 get_header(); ?>
     <div class="header-bottom">
-        Wood Design is a modern web & graphic design studio in Europe. We create beautiful things for web and print.
-        You can see our great work examples in <a href="/portfolio">Portfolio</a>. If you need a professional
-        design services <a href="/contacts">Contact</a> us. We would love to work with you.
+        <?php echo get_theme_mod( 'header_txt_bottom', WPTEST_GET_THE_MOD_DEFAULT ); ?>
     </div>
     <div class="content-wrapper layout-row">
         <main class="layout-col layout-col-main">

@@ -14,7 +14,7 @@ add_action('customize_register', static function (WP_Customize_Manager $wp_custo
                 'priority' => 999,
             )
         );
-        if ($name_section = 'footer_section_1') {
+        if ($name_section = 'header_h1') {
             $wp_customize->add_section(
                 $name_section,
                 array(
@@ -35,6 +35,39 @@ add_action('customize_register', static function (WP_Customize_Manager $wp_custo
                     'section' => $name_section,
                     'label' => 'Текст заголовка',
                     'type' => 'text'
+                )
+            );
+        }
+    }
+    if ($panel_main_page = 'panel_header_txt_bottom') {
+        $wp_customize->add_panel(
+            'panel_header_txt_bottom',
+            array(
+                'title' => 'Блок с текстом под шапкой сайта',
+                'priority' => 999,
+            )
+        );
+        if ($name_section = 'header_bottom') {
+            $wp_customize->add_section(
+                $name_section,
+                array(
+                    'panel' => $panel_main_page,
+                    'title' => 'Текст блока',
+                    'priority' => 0,
+                )
+            );
+            $wp_customize->add_setting(
+                'header_txt_bottom',
+                array(
+                    'transport' => WPTEST_GET_THE_MOD_DEFAULT
+                )
+            );
+            $wp_customize->add_control(
+                'header_txt_bottom',
+                array(
+                    'section' => $name_section,
+                    'label' => 'Содержимое блока',
+                    'type' => 'textarea'
                 )
             );
         }
