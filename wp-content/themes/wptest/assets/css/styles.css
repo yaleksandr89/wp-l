@@ -295,9 +295,16 @@ em {
     width: 100%;
     text-align: center;
 }
-.desc_404{
+
+.desc_404 {
     margin-bottom: 20px;
 }
+
+.img-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
 @media screen and (max-width: 900px) {
     .wrapper {
         padding: 0 15px;

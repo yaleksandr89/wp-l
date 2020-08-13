@@ -13,6 +13,7 @@ include_once __DIR__ . '/includes/system.php';
 include_once __DIR__ . '/includes/constants.php';
 include_once __DIR__ . '/includes/styles-scripts.php';
 include_once __DIR__ . '/includes/customizer.php';
+include_once __DIR__ . '/includes/widget.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -55,43 +56,10 @@ add_action( 'after_setup_theme', static function () {
 
 /*
 |--------------------------------------------------------------------------
-| Add support widgets
-| url: https://wp-kama.ru/function/register_sidebar
-|--------------------------------------------------------------------------
-*/
-add_action( 'widgets_init', static function () {
-	// Home page widgets
-	register_sidebar( [
-		'name'          => 'Боковая колонка для главной',
-		'id'            => 'sidebar_main_page',
-		'description'   => 'Выводится только на главной странице',
-		'class'         => '',
-		'before_widget' => '<div class="aside-box">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<div class="h2">',
-		'after_title'   => '</div>'
-	] );
-} );
-
-/*
-|--------------------------------------------------------------------------
-| Customize default widget (category)
-|--------------------------------------------------------------------------
-*/
-add_action( 'wptest_widget_front_page', static function ( $name_widget ) {
-	ob_start();
-	dynamic_sidebar( $name_widget );
-	$sidebar              = ob_get_clean();
-	$sidebar_corrected_ul = str_replace( "<ul>", '<ul class="secondery-navigation">', $sidebar );
-	echo $sidebar_corrected_ul;
-} );
-
-/*
-|--------------------------------------------------------------------------
 | Модификация <title>
 | url: https://wp-kama.ru/hook/document_title_parts
 |
-| >>> 1 - Удаление названия сайта (singular page)
+| >>> 1 - Удаление названия сайта из <title> (singular page)
 | >>> 2 - Удаление описания сайта и изменение <title> у главной страницы
 |--------------------------------------------------------------------------
 */
