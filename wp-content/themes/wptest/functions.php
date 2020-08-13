@@ -168,17 +168,3 @@ add_action( 'phpmailer_init', static function ( PHPMailer $phpmailer ) {
 	$phpmailer->From       = SMTP_FROM;
 	$phpmailer->FromName   = SMTP_NAME;
 } );
-
-
-/*
-|--------------------------------------------------------------------------
-| Added prefix '/blog/' on the pages single post
-|--------------------------------------------------------------------------
-*/
-add_filter( 'post_link', static function ( $post_link, $post ) {
-	if ( $post->post_type === 'post' ) {
-		return str_replace( get_bloginfo( 'home' ), get_bloginfo( 'home' ) . '/blog', $post_link );
-	}
-
-	return $post_link;
-}, 10, 2 );
