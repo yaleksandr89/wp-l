@@ -39,6 +39,9 @@ NO! Plugin invisible for users. You need to go to WordPress "Discussion" setting
 
 == Changelog ==
 
+= 1.8 =
+* FIX: WordPress 5.5 support.
+
 = 1.7.5 =
 * FIX: bug with uniq code comparation
 * minor code fixes

@@ -8,6 +8,11 @@
  * @version 1.0
  */
 
+// Ограничение количества ревизий
+add_filter( 'wp_revisions_to_keep', static function ( $revisions ) {
+	return 3;
+} );
+
 // Отключение возможность редактировать файлы в админке для тем, плагинов
 define( 'DISALLOW_FILE_EDIT', true );
 
@@ -21,17 +26,17 @@ remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'wp_generator' ); // из заголовка
 add_filter( 'the_generator', '__return_empty_string' ); // из фидов и URL
 
-// Удаление версии у стилей и скриптов
-add_filter( 'script_loader_src', 'remove_wp_version_css_js' );
-add_filter( 'style_loader_src', 'remove_wp_version_css_js' );
-function remove_wp_version_css_js( $src ) {
-	parse_str( parse_url( $src, PHP_URL_QUERY ), $query );
-	if ( ! empty( $query['ver'] ) && $query['ver'] === $GLOBALS['wp_version'] ) {
-		$src = remove_query_arg( 'ver', $src );
-	}
+// Замена версии у скриптов и стилей
+function _remove_script_and_css_version( $src ) {
+	$modifiedSrc    = explode( '?', $src );
+	$modifiedSrc[1] = 'ver=' . WPTEST_THEME_VERSION;
+	$modifiedSrc    = implode( '?', $modifiedSrc );
 
-	return $src;
+	return $modifiedSrc;
 }
+
+add_filter( 'script_loader_src', '_remove_script_and_css_version', 15, 1 );
+add_filter( 'style_loader_src', '_remove_script_and_css_version', 15, 1 );
 
 // Замена стандартных ошибок на странице входа
 add_filter( 'login_errors', static function () {

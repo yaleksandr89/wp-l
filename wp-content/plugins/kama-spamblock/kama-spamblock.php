@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Kama SpamBlock
  *
- * Description: Block auto-spam when comment is posted not by human. Check pings and trackbacks for real backlink. For disable the plugin define the constant: <code>define('KS_FORCE_DISABLE', 1);</code> in theme functions.php file.
+ * Description: Block spam when comment is posted by robot. Checks pings/trackbacks for real backlink. To disable the plugin define the constant: <code>define('KS_FORCE_DISABLE', 1);</code> in theme functions.php file.
  *
  * Text Domain: kama-spamblock
  * Domain Path: /languages
@@ -11,7 +11,7 @@
  * Author URI: http://wp-kama.ru
  * Plugin URI: http://wp-kama.ru/?p=95
  *
- * Version: 1.7.5.1
+ * Version: 1.8
  */
 
 
@@ -24,6 +24,8 @@ function kama_spamblock_init(){
 class Kama_Spamblock {
 
 	const OPT_NAME = 'ks_options';
+
+	static $process_comment_types = [ '', 'comment' ]; // `comment` for WP 5.5+
 
 	public $opt;
 
@@ -54,6 +56,7 @@ class Kama_Spamblock {
 
 	## blocking
 	function spamblock( $commentdata ){
+
 		$com_type = $commentdata['comment_type'];
 
 		// Pings and trackbacks protect
@@ -64,10 +67,10 @@ class Kama_Spamblock {
 			if( ! preg_match('~<a[^>]+href=[\'"](https?:)?//'. preg_quote( parse_url( home_url(), PHP_URL_HOST ) ) .'~si', $external_html) )
 				die('no backlink...');
 		}
-
 		// spam blocking. Only for comment_type == '' (comment)
 		$_nonce = isset($_POST['ksbn_code']) ? trim( self::make_nonce($_POST['ksbn_code']) ) : false;
-		if( $com_type === '' && $_nonce !== $this->nonce ){
+
+		if( in_array( $com_type, self::$process_comment_types, true ) && $_nonce !== $this->nonce ){
 			wp_die( $this->block_form() );
 		}
 
@@ -75,8 +78,10 @@ class Kama_Spamblock {
 	}
 
 	static function make_nonce( $key ){
+
 		if( preg_match('/^[a-f0-9]{32}$/', $key) )
 			return $key; // уже md5
+
 		return md5( $key );
 	}
 

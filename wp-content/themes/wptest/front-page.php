@@ -11,11 +11,13 @@
  */
 get_header(); ?>
     <div class="header-bottom">
-        <?php echo get_theme_mod( 'header_txt_bottom', WPTEST_GET_THE_MOD_DEFAULT ); ?>
+        Wood Design is a modern web & graphic design studio in Europe. We create beautiful things for web and print.
+        You can see our great work examples in <a href="/portfolio">Portfolio</a>. If you need a professional
+        design services <a href="/contacts">Contact</a> us. We would love to work with you.
     </div>
     <div class="content-wrapper layout-row">
         <main class="layout-col layout-col-main">
-            <h1><?php echo get_theme_mod( 'header_h1', WPTEST_GET_THE_MOD_DEFAULT ); ?></h1>
+            <h1>Wood design - home page</h1>
             <div class="posts-flow layout-row">
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : ?>

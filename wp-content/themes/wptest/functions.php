@@ -12,7 +12,6 @@ include_once __DIR__ . '/helpers/connect.php';
 include_once __DIR__ . '/includes/system.php';
 include_once __DIR__ . '/includes/constants.php';
 include_once __DIR__ . '/includes/styles-scripts.php';
-include_once __DIR__ . '/includes/customizer.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -168,17 +167,17 @@ add_action('widgets_init', static function () {
 | 3. If in the script use construction '->' (example object->name), instead -> use -&gt;
 |--------------------------------------------------------------------------
 */
-add_filter('widget_text', static function ($widget_content) {
-    // Fix warning (why not do save widget)
-    $widget_content = str_replace(['%start_PHP%', '%stop_PHP%', '-&gt;'], ['<?php', '?>', '->'], $widget_content);
-
-    if (strpos($widget_content, '<' . '?') !== false) {
-        ob_start();
-        eval('?' . '>' . $widget_content);
-        $widget_content = ob_get_clean();
-    }
-    return $widget_content;
-}, 99);
+//add_filter('widget_text', static function ($widget_content) {
+//    // Fix warning (why not do save widget)
+/*    $widget_content = str_replace(['%start_PHP%', '%stop_PHP%', '-&gt;'], ['<?php', '?>', '->'], $widget_content);*/
+//
+//    if (strpos($widget_content, '<' . '?') !== false) {
+//        ob_start();
+//        eval('?' . '>' . $widget_content);
+//        $widget_content = ob_get_clean();
+//    }
+//    return $widget_content;
+//}, 99);
 
 /*
 |--------------------------------------------------------------------------
