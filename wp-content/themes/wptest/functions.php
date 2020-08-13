@@ -168,3 +168,12 @@ add_action( 'phpmailer_init', static function ( PHPMailer $phpmailer ) {
 	$phpmailer->From       = SMTP_FROM;
 	$phpmailer->FromName   = SMTP_NAME;
 } );
+
+add_action('wptest_widget_front_page', static function($name_widget){
+	// manual: https://stackoverflow.com/questions/16885027/wordpress-how-to-add-class-to-ul-of-sidebar-widget
+	ob_start();
+	dynamic_sidebar($name_widget);
+	$sidebar = ob_get_clean();
+	$sidebar_corrected_ul = str_replace("<ul>", '<ul class="secondery-navigation">', $sidebar);
+	echo $sidebar_corrected_ul;
+});

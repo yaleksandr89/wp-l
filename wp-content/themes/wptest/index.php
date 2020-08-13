@@ -40,14 +40,7 @@ get_header();
         </main>
 		<?php if (is_active_sidebar('sidebar_main_page')) : ?>
             <aside class="layout-col layout-col-aside">
-				<?php
-				// manual: https://stackoverflow.com/questions/16885027/wordpress-how-to-add-class-to-ul-of-sidebar-widget
-				ob_start();
-				dynamic_sidebar('sidebar_main_page');
-				$sidebar = ob_get_clean();
-				$sidebar_corrected_ul = str_replace("<ul>", '<ul class="secondery-navigation">', $sidebar);
-				echo $sidebar_corrected_ul;
-				?>
+                <?php do_action('wptest_widget_front_page', 'sidebar_main_page'); ?>
             </aside>
 		<?php endif; ?>
     </div>
