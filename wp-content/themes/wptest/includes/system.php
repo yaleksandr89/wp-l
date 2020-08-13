@@ -59,3 +59,21 @@ add_action( 'wp_head', static function () {
 	// или если нужна еще и поддержка при печати
 	echo '<!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script><![endif]-->';
 } );
+
+/*
+|--------------------------------------------------------------------------
+| Настройка SMTP сервера
+| url: https://www.kobzarev.com/wordpress/smtp-wordpress/
+|--------------------------------------------------------------------------
+*/
+add_action( 'phpmailer_init', static function ( PHPMailer $phpmailer ) {
+	$phpmailer->isSMTP();
+	$phpmailer->Host       = SMTP_HOST;
+	$phpmailer->SMTPAuth   = SMTP_AUTH;
+	$phpmailer->Port       = SMTP_PORT;
+	$phpmailer->Username   = SMTP_USER;
+	$phpmailer->Password   = SMTP_PASS;
+	$phpmailer->SMTPSecure = SMTP_SECURE;
+	$phpmailer->From       = SMTP_FROM;
+	$phpmailer->FromName   = SMTP_NAME;
+} );

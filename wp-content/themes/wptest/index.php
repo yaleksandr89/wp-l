@@ -13,10 +13,10 @@ get_header();
 ?>
     <div class="content-wrapper layout-row">
         <main class="layout-col layout-col-main">
-            <h1><?= get_theme_mod( 'header_h1') ?></h1>
+            <h1><?= get_theme_mod( 'header_h1' ) ?></h1>
             <div class="posts-flow layout-row">
-				<?php if (have_posts()) : ?>
-					<?php while (have_posts()) : ?>
+				<?php if ( have_posts() ) : ?>
+					<?php while ( have_posts() ) : ?>
 						<?php the_post() ?>
                         <article class="post-card layout-col">
                             <a href="<?php the_permalink(); ?>" class="post-card-link">
@@ -26,7 +26,7 @@ get_header();
 								<?php the_title() ?>
                             </h2>
                             <div class="post-card-intro">
-								<?php the_field('preview_article'); ?>
+								<?php the_field( 'preview_article' ); ?>
                             </div>
                         </article>
 					<?php endwhile; ?>
@@ -34,13 +34,13 @@ get_header();
                     <p>Записи отсутствуют.</p>
 				<?php endif; ?>
                 <div class="pagination">
-					<?php the_posts_pagination(['prev_next' => false]); ?>
+					<?php the_posts_pagination( [ 'prev_next' => false ] ); ?>
                 </div>
             </div>
         </main>
-		<?php if (is_active_sidebar('sidebar_main_page')) : ?>
+		<?php if ( is_active_sidebar( 'sidebar_main_page' ) ) : ?>
             <aside class="layout-col layout-col-aside">
-                <?php do_action('wptest_widget_front_page', 'sidebar_main_page'); ?>
+				<?php do_action( 'wptest_widget_front_page', 'sidebar_main_page' ); ?>
             </aside>
 		<?php endif; ?>
     </div>
