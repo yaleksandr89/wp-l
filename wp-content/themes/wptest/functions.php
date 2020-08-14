@@ -13,16 +13,7 @@ include_once __DIR__ . '/includes/system.php';
 include_once __DIR__ . '/includes/constants.php';
 include_once __DIR__ . '/includes/styles-scripts.php';
 include_once __DIR__ . '/includes/customizer.php';
-include_once __DIR__ . '/includes/widget.php';
-
-/*
-|--------------------------------------------------------------------------
-| Переключение админ-бара (on/off)
-| url: https://wp-kama.ru/function/show_admin_bar (show_admin_bar())
-|--------------------------------------------------------------------------
-*/
-//add_filter('show_admin_bar', '__return_false'); // turn off
-//add_filter('show_admin_bar', '__return_true'); // turn on
+include_once __DIR__ . '/widgets/init.php';
 
 /*
 |--------------------------------------------------------------------------

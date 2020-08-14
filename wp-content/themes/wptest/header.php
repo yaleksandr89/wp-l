@@ -34,7 +34,7 @@
 			] );
 			?>
         </div>
-		<?php if ( is_front_page() || is_category() || is_tag() ): ?>
+		<?php if ( is_front_page() || is_category() || is_tag() || is_404() ): ?>
             <div class="header-bottom customize_header_txt_bottom">
 				<?= get_theme_mod( 'header_txt_bottom', WPTEST_GET_THE_MOD_DEFAULT ) ?>
             </div>

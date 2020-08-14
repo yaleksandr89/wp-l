@@ -42,7 +42,7 @@ get_header();
         </main>
 		<?php if ( is_active_sidebar( 'sidebar_main_page' ) ) : ?>
             <aside class="layout-col layout-col-aside">
-				<?php do_action( 'wptest_widget_front_page', 'sidebar_main_page' ); ?>
+				<?php dynamic_sidebar( 'sidebar_main_page' ); ?>
             </aside>
 		<?php endif; ?>
     </div>
