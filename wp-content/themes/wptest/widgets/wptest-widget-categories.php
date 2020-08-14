@@ -34,8 +34,7 @@ class WPTEST_Widget_Categories extends WP_Widget {
 		$container_class = '';
 		$cat_args        = [
 			'orderby'      => 'name',
-			'show_count'   => $count,
-			'hierarchical' => $hierarchical,
+			'show_count'   => $count
 		];
 		$wrapper_args    = [
 			'container'       => $container ?: 'ul',
@@ -67,7 +66,6 @@ class WPTEST_Widget_Categories extends WP_Widget {
 		$instance                  = $old_instance;
 		$instance['current_title'] = sanitize_text_field( $new_instance['current_title'] );
 		$instance['count']         = ! empty( $new_instance['count'] ) ? 1 : 0;
-		$instance['hierarchical']  = ! empty( $new_instance['hierarchical'] ) ? 1 : 0;
 
 		return $instance;
 	}
@@ -75,7 +73,6 @@ class WPTEST_Widget_Categories extends WP_Widget {
 	public function form( $instance ): void {
 		$instance     = wp_parse_args( (array) $instance, array( 'current_title' => '' ) );
 		$count        = isset( $instance['count'] ) ? (bool) $instance['count'] : false;
-		$hierarchical = isset( $instance['hierarchical'] ) ? (bool) $instance['hierarchical'] : false;
 		?>
         <p>
             <label for="<?php echo $this->get_field_id( 'current_title' ); ?>">Заголовок:</label>
@@ -88,11 +85,6 @@ class WPTEST_Widget_Categories extends WP_Widget {
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'count' ); ?>"
                    name="<?php echo $this->get_field_name( 'count' ); ?>"<?php checked( $count ); ?> />
             <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Show post counts' ); ?></label>
-            <br/>
-
-            <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id( 'hierarchical' ); ?>"
-                   name="<?php echo $this->get_field_name( 'hierarchical' ); ?>"<?php checked( $hierarchical ); ?> />
-            <label for="<?php echo $this->get_field_id( 'hierarchical' ); ?>"><?php _e( 'Show hierarchy' ); ?></label>
         </p>
 		<?php
 	}
