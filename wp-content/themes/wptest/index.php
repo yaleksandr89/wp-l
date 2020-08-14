@@ -13,7 +13,9 @@ get_header();
 ?>
     <div class="content-wrapper layout-row">
         <main class="layout-col layout-col-main">
-            <h1><?= get_theme_mod( 'header_h1' ) ?></h1>
+            <h1 class="customize_home_page_h1">
+                <?= get_theme_mod( 'header_h1', WPTEST_GET_THE_MOD_DEFAULT ) ?>
+            </h1>
             <div class="posts-flow layout-row">
 				<?php if ( have_posts() ) : ?>
 					<?php while ( have_posts() ) : ?>

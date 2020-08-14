@@ -28,3 +28,10 @@ define('WPTEST_DIR_iMAGES', get_template_directory_uri() . '/assets/images/');
  * @url https://wp-kama.ru/function/get_theme_mod
  */
 define( 'WPTEST_GET_THE_MOD_DEFAULT', 'Значение поля не установлено' );
+
+/**
+ * Параметры отображения предварительного просмотра изменений в Настройщике тем.
+ * @url https://wp-kama.ru/handbook/theme/customize-api
+ */
+define( 'WPTEST_CUSTOMIZER_TRANSPORT_REFRESH', 'refresh' );
+define( 'WPTEST_CUSTOMIZER_TRANSPORT_POST_MESSAGE', 'postMessage' );
