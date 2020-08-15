@@ -305,6 +305,11 @@ em {
     text-align: center;
 }
 
+.gif-pos {
+    position: relative;
+    top: 5px;
+}
+
 @media screen and (max-width: 900px) {
     .wrapper {
         padding: 0 15px;
@@ -318,6 +323,10 @@ em {
 }
 
 @media screen and (max-width: 576px) {
+    .img-wrapper {
+        display: none;
+    }
+
     .post-card {
         width: calc(100% - 30px);
         text-align: center;

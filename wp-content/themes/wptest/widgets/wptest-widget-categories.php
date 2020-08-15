@@ -33,8 +33,8 @@ class WPTEST_Widget_Categories extends WP_Widget {
 		$container       = '';
 		$container_class = '';
 		$cat_args        = [
-			'orderby'      => 'name',
-			'show_count'   => $count
+			'orderby'    => 'name',
+			'show_count' => $count
 		];
 		$wrapper_args    = [
 			'container'       => $container ?: 'ul',
@@ -71,8 +71,8 @@ class WPTEST_Widget_Categories extends WP_Widget {
 	}
 
 	public function form( $instance ): void {
-		$instance     = wp_parse_args( (array) $instance, array( 'current_title' => '' ) );
-		$count        = isset( $instance['count'] ) ? (bool) $instance['count'] : false;
+		$instance = wp_parse_args( (array) $instance, array( 'current_title' => '' ) );
+		$count    = isset( $instance['count'] ) ? (bool) $instance['count'] : false;
 		?>
         <p>
             <label for="<?php echo $this->get_field_id( 'current_title' ); ?>">Заголовок:</label>

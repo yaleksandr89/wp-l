@@ -9,12 +9,12 @@ get_header(); ?>
         <main class="layout-col layout-col-taxonomy-page">
             <h1 class="header_404">Ошибка 404</h1>
             <div class="posts-flow layout-row">
-                <div class="img-wrapper">
-                    <img src="<?= WPTEST_DIR_iMAGES?>img_404_page.jpg" alt="image 404 page">
-                </div>
                 <p class="desc_404">
                     Запрашиваемая страница удалена или никогда не существовала.
                 </p>
+                <div class="img-wrapper gif-pos">
+                    <img src="<?= WPTEST_DIR_iMAGES?>404-page.gif" alt="image 404 page">
+                </div>
             </div>
         </main>
     </div>
