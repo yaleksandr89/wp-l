@@ -14,6 +14,7 @@ include_once __DIR__ . '/includes/constants.php';
 include_once __DIR__ . '/includes/styles-scripts.php';
 include_once __DIR__ . '/includes/customizer.php';
 include_once __DIR__ . '/widgets/init.php';
+include_once __DIR__ . '/includes/custom-post-types/init.php';
 
 /*
 |--------------------------------------------------------------------------
