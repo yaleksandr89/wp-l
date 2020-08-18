@@ -1,6 +1,6 @@
 # WordPress - базовый курс #
 
-URL: [wp.alexanderyurchenko.ru](wp.alexanderyurchenko.ru)
+URL: [wp.alexanderyurchenko.ru](https://wp.alexanderyurchenko.ru/)
 
 # Уроки #
 
