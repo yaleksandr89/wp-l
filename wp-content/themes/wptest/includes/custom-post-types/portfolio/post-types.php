@@ -25,5 +25,10 @@ $args_portfolio   = [
 	],
 	'menu_icon'     => 'dashicons-awards',
 	'menu_position' => 40,
+	'taxonomies' => [
+		'wptest-type-work',
+		'wptest-clients'
+	]
+
 ];
 register_post_type( 'wptest-portfolio', $args_portfolio );

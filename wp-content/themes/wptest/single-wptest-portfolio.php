@@ -18,5 +18,8 @@ get_header(); ?>
                 <p><?php the_content() ?></p>
             </div>
         </main>
+        <aside class="layout-col layout-col-aside">
+		    <?php get_template_part('template-parts/single-portfolio-sidebar'); ?>
+        </aside>
     </div>
 <?php get_footer(); ?>

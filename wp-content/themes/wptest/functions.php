@@ -71,6 +71,9 @@ add_filter( 'document_title_parts', static function ( $title ) {
 	if ( is_front_page() ) {
 		$title['title'] = 'Home';
 	}
+	if ( is_post_type_archive() ) {
+		$title['title'] = ru2Lat( $title['title'] );
+	}
 
 	return $title;
 } );
