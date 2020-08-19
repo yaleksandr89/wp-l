@@ -11,15 +11,9 @@
  */
 get_header(); ?>
     <div class="content-wrapper layout-row">
-        <main class="layout-col layout-col-main">
-			<?php the_post(); ?>
-            <h1><?php the_title() ?></h1>
-            <div class="post-full">
-                <p><?php the_content() ?></p>
-            </div>
-        </main>
+		<?php get_template_part( 'template-parts/default-output-single-post' ); ?>
         <aside class="layout-col layout-col-aside">
-			<?php get_template_part('template-parts/single-sidebar'); ?>
+			<?php get_template_part( 'template-parts/single-sidebar' ); ?>
         </aside>
     </div>
 <?php get_footer(); ?>

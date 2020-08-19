@@ -10,39 +10,17 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 get_header(); ?>
-	<div class="content-wrapper layout-row">
-		<main class="layout-col layout-col-main">
-			<h1 class="customize_home_page_h1">
+    <div class="content-wrapper layout-row">
+        <main class="layout-col layout-col-main">
+            <h1 class="customize_home_page_h1">
 				<?= get_theme_mod( 'header_h1', WPTEST_GET_THE_MOD_DEFAULT ) ?>
-			</h1>
-			<div class="posts-flow layout-row">
-				<?php if ( have_posts() ) : ?>
-					<?php while ( have_posts() ) : ?>
-						<?php the_post() ?>
-						<article class="post-card layout-col">
-							<a href="<?php the_permalink(); ?>" class="post-card-link">
-								<?php the_post_thumbnail() ?>
-							</a>
-							<h2 class="post-card-title">
-								<?php the_title() ?>
-							</h2>
-							<div class="post-card-intro">
-								<?php the_field( 'preview_article' ); ?>
-							</div>
-						</article>
-					<?php endwhile; ?>
-				<?php else : ?>
-					<p>Записи отсутствуют.</p>
-				<?php endif; ?>
-				<div class="pagination">
-					<?php the_posts_pagination( [ 'prev_next' => false ] ); ?>
-				</div>
-			</div>
-		</main>
+            </h1>
+			<?php get_template_part( 'template-parts/default-output-post' ); ?>
+        </main>
 		<?php if ( is_active_sidebar( 'sidebar_main_page' ) ) : ?>
-			<aside class="layout-col layout-col-aside">
+            <aside class="layout-col layout-col-aside">
 				<?php dynamic_sidebar( 'sidebar_main_page' ); ?>
-			</aside>
+            </aside>
 		<?php endif; ?>
-	</div>
+    </div>
 <?php get_footer();

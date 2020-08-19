@@ -53,7 +53,7 @@ add_action( 'widgets_init', 'wptest_add_widgets', 30 );
 include_once __DIR__ . '/wptest-widget-categories.php';
 
 // Модификация виджета "категорий"
-add_filter( 'wptest_widget_categories_wrapper', static function ( $cat_args ) {
-	$cat_args['container_class'] = 'secondery-navigation';
-	return $cat_args;
+add_filter( 'wptest_widget_categories_wrapper', static function ( $wrapper_args ) {
+	$wrapper_args['container_class'] = 'secondery-navigation';
+	return $wrapper_args;
 });
