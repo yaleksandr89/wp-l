@@ -11,16 +11,10 @@
 <div class="aside-box">
     <div class="h2">Post categories</div>
     <ul class="secondery-navigation">
-		<?php foreach ( get_the_category() as $category ): ?>
-            <li>
-                <a href="<?= esc_url( get_category_link( $category ) ) ?>">
-					<?= esc_html( $category->name ) ?>
-                </a>
-            </li>
-		<?php endforeach ?>
+		<?php the_terms( get_the_ID(), 'category' ); ?>
     </ul>
 </div>
 <div class="aside-box">
     <div class="h2">Post tags</div>
-	<?php the_tags( '<ul class="secondery-navigation"><li>', '</li><li>', '</li></ul>' ) ?>
+	<?php the_terms( get_the_ID(), 'post_tag', '<ul class="secondery-navigation"><li>', '</li><li>', '</li></ul>' ); ?>
 </div>

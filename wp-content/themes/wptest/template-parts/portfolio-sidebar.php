@@ -1,12 +1,37 @@
-<?php $terms_type_work = get_terms( 'wptest-type-work' ); ?>
-<?php if ( $terms_type_work ) : ?>
+<?php
+$terms      = get_terms();
+$type_works = [];
+$clients    = [];
+foreach ( $terms as $term ) {
+	if ( 'type-work' === $term->taxonomy ) {
+		for ( $i = 0, $iMax = count( $term ); $i < $iMax; $i ++ ) {
+			static $count_type_work = 0;
+			$type_works[ $count_type_work ++ ] = [
+				'id'   => $term->term_id,
+				'name' => $term->name
+			];
+		}
+	}
+	if ( 'clients' === $term->taxonomy ) {
+		for ( $i = 0, $iMax = count( $term ); $i < $iMax; $i ++ ) {
+			static $count_clients = 0;
+			$clients[ $count_clients ++ ] = [
+				'id'   => $term->term_id,
+				'name' => $term->name
+			];
+		}
+	}
+}
+?>
+
+<?php if ( $type_works ) : ?>
     <div class="aside-box">
         <div class="h2">Type work</div>
         <ul class="secondery-navigation">
-			<?php foreach ( $terms_type_work as $term ) : ?>
+			<?php foreach ( $type_works as $type_work ) : ?>
                 <li>
-                    <a href="<?= get_term_link( $term->term_id ) ?>">
-						<?= $term->name ?>
+                    <a href="<?= get_term_link( $type_work['id'] ) ?>">
+						<?= $type_work['name'] ?>
                     </a>
                 </li>
 			<?php endforeach; ?>
@@ -14,18 +39,17 @@
     </div>
 <?php endif; ?>
 
-<?php $terms_clients = get_terms( 'wptest-clients' ); ?>
-<?php if ( $terms_clients ) : ?>
-	<div class="aside-box">
-		<div class="h2">Clients</div>
-		<ul class="secondery-navigation">
-			<?php foreach ( $terms_clients as $term ) : ?>
-				<li>
-					<a href="<?= get_term_link( $term->term_id ) ?>">
-						<?= $term->name ?>
-					</a>
-				</li>
+<?php if ( $clients ) : ?>
+    <div class="aside-box">
+        <div class="h2">Clients</div>
+        <ul class="secondery-navigation">
+			<?php foreach ( $clients as $client ) : ?>
+                <li>
+                    <a href="<?= get_term_link( $client['id'] ) ?>">
+						<?= $client['name'] ?>
+                    </a>
+                </li>
 			<?php endforeach; ?>
-		</ul>
-	</div>
+        </ul>
+    </div>
 <?php endif; ?>

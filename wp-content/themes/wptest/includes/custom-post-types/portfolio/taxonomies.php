@@ -17,9 +17,6 @@ $labels_taxonomy_work_type   = [
 $args_taxonomy_work_type = [
 	'labels'  => $labels_taxonomy_work_type,
 	'public'  => true,
-	'rewrite' => [
-		'slug' => 'type-work'
-	],
 ];
 
 // Register taxonomy "Clients" for custom type
@@ -39,10 +36,7 @@ $labels_taxonomy_clients = [
 ];
 $args_taxonomy_clients   = [
 	'labels'  => $labels_taxonomy_clients,
-	'public'  => true,
-	'rewrite' => [
-		'slug' => 'clients'
-	],
+	'public'  => true
 ];
-register_taxonomy( 'wptest-type-work', [ 'wptest-portfolio' ], $args_taxonomy_work_type );
-register_taxonomy( 'wptest-clients', [ 'wptest-portfolio' ], $args_taxonomy_clients );
+register_taxonomy( 'type-work', [ 'portfolio' ], $args_taxonomy_work_type );
+register_taxonomy( 'clients', [ 'portfolio' ], $args_taxonomy_clients );

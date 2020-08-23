@@ -20,15 +20,12 @@ $args_portfolio   = [
 	'supports'      => [ 'title', 'editor', 'thumbnail' ],
 	// 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
 	'has_archive'   => true,
-	'rewrite'       => [
-		'slug' => 'portfolio'
-	],
 	'menu_icon'     => 'dashicons-awards',
 	'menu_position' => 40,
 	'taxonomies' => [
-		'wptest-type-work',
-		'wptest-clients'
+		'type-work',
+		'clients'
 	]
 
 ];
-register_post_type( 'wptest-portfolio', $args_portfolio );
+register_post_type( 'portfolio', $args_portfolio );

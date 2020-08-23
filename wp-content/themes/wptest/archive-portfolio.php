@@ -11,6 +11,14 @@
  */
 get_header(); ?>
     <div class="content-wrapper layout-row">
-		<?php dump( 'archive page...' ) ?>
+        <main class="layout-col layout-col-main">
+            <h1 class="customize_home_page_h1">
+				<?= ucfirst( get_queried_object()->rewrite['slug'] ) ?>
+            </h1>
+			<?php get_template_part( 'template-parts/default-output-post' ); ?>
+        </main>
+        <aside class="layout-col layout-col-aside">
+			<?php get_template_part( 'template-parts/portfolio-sidebar' ); ?>
+        </aside>
     </div>
 <?php get_footer();

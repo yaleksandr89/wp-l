@@ -10,9 +10,9 @@
 </div>
 <div class="aside-box">
     <div class="h2">Type work</div>
-	<?php the_terms( get_the_ID(), 'wptest-type-work', '<ul class="secondery-navigation"><li>', '</li><li>', '</li></ul>' ) ?>
+	<?php the_terms( get_the_ID(), 'type-work', '<ul class="secondery-navigation"><li>', '</li><li>', '</li></ul>' ) ?>
 </div>
 <div class="aside-box">
     <div class="h2">Clients</div>
-	<?php the_terms( get_the_ID(), 'wptest-clients', '<ul class="secondery-navigation"><li>', '</li><li>', '</li></ul>' ) ?>
+	<?php the_terms( get_the_ID(), 'clients', '<ul class="secondery-navigation"><li>', '</li><li>', '</li></ul>' ) ?>
 </div>
