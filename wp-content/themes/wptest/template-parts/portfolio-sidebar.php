@@ -4,18 +4,18 @@ $type_works = [];
 $clients    = [];
 foreach ( $terms as $term ) {
 	if ( 'type-work' === $term->taxonomy ) {
-		for ( $i = 0, $iMax = count( $term ); $i < $iMax; $i ++ ) {
-			static $count_type_work = 0;
-			$type_works[ $count_type_work ++ ] = [
+		$uniq_id_term = spl_object_id( $term );
+		if ( isset( $uniq_id_term ) ) {
+			$type_works[ 'id_obj-' . $uniq_id_term ] = [
 				'id'   => $term->term_id,
 				'name' => $term->name
 			];
 		}
 	}
 	if ( 'clients' === $term->taxonomy ) {
-		for ( $i = 0, $iMax = count( $term ); $i < $iMax; $i ++ ) {
-			static $count_clients = 0;
-			$clients[ $count_clients ++ ] = [
+		$uniq_id_term = spl_object_id( $term );
+		if ( isset( $uniq_id_term ) ) {
+			$clients[ 'id_obj-' . $uniq_id_term ] = [
 				'id'   => $term->term_id,
 				'name' => $term->name
 			];

@@ -40,6 +40,11 @@ add_action( 'after_setup_theme', static function () {
 			'style',
 		]
 	);
+	// Форматы постов
+	add_theme_support('post-formats', [
+		'aside',
+		'video',
+	]);
 	// Поддержка блоков встраивания (embeds)
 	add_theme_support( 'responsive-embeds' );
 	// Поддержка навигационного меню
@@ -121,13 +126,21 @@ add_filter( 'the_content_more_link', '__return_empty_string' );
 /*
 |--------------------------------------------------------------------------
 | Изменение разметки для пагинации
-| url: https://wp-kama.ru/function/the_posts_pagination
 |--------------------------------------------------------------------------
 */
+add_filter( 'wptest_the_posts_pagination', static function ( $args ) {
+	ob_start();
+	the_posts_pagination( [
+		'prev_next' => $args['prev_next'] ?: false,
+	] );
+	$default_pagination = ob_get_clean();
+	return str_replace( ["page-numbers","current"], [$args['class_no_active'],$args['class_active']], $default_pagination );
+});
+
 add_filter( 'navigation_markup_template', static function ( $template, $class ) {
 	return '
-	<nav class="navigation %1$s" role="navigation">
-		<div class="nav-links">%3$s</div>
-	</nav>    
+	<nav class="pagination">
+		<div class="pagination-links">%3$s</div>
+	</nav>
 	';
 }, 10, 2 );

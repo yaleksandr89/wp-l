@@ -9,7 +9,7 @@
                 <h2 class="post-card-title">
 					<?php the_title() ?>
                 </h2>
-				<?php if ( ( ! is_tag()) && ( is_post_type_archive() || is_tax() ) ): ?>
+				<?php if ( ( ! is_tag() ) && ( is_post_type_archive() || is_tax() ) ): ?>
                     <div class="post-card-intro">
 						<?php the_field( 'preview_portfolio' ); ?>
                     </div>
@@ -23,7 +23,8 @@
 	<?php else : ?>
         <p>Записи отсутствуют.</p>
 	<?php endif; ?>
-    <div class="pagination">
-		<?php the_posts_pagination( [ 'prev_next' => false ] ); ?>
-    </div>
 </div>
+<?php echo apply_filters( 'wptest_the_posts_pagination', [
+	'class_no_active' => 'pagination-item',
+	'class_active'    => 'pagination-item-current',
+] ); ?>

@@ -1,0 +1,136 @@
+.pagination{
+	margin-bottom: 30px;
+	font-size: 0;
+	text-align: center;
+}
+
+.pagination-links{
+	border-left: 1px solid rgba(184, 184, 184, 0.5);
+	border-top: 1px solid rgba(184, 184, 184, 0.5);
+	display: inline-block;
+}
+
+.pagination-item{
+	display: inline-block;
+	font-size: 1rem;
+	text-decoration: none;
+	color: #bc8a59;
+	border-right: 1px solid rgba(184, 184, 184, 0.5);
+	border-bottom: 1px solid rgba(184, 184, 184, 0.5);
+	padding: 10px;
+}
+
+a.pagination-item:hover{
+	color: #f2b77d;
+}
+
+.pagination-item-current{
+	color: #8a6540;
+}
+
+.contacts-box{
+	position: relative;
+}
+
+.contacts-box-content{
+	box-sizing: border-box;
+	padding: 20px;
+	width: 50%;
+	max-width: 450px;
+	position: relative;
+	z-index: 10;
+	background: rgba(0, 0, 0, 0.7);
+	color: #fff;
+}
+
+.contacts-box-content *:first-child{
+	margin-top: 0;
+}
+
+.contacts-box-content *:last-child{
+	margin-bottom: 0;
+}
+
+.contacts-box-map{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@media screen and (max-width: 768px){
+	.contacts-box-content{
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.contacts-box-map{
+		position: static;
+		height: 300px;
+	}
+}
+
+.post-card{
+	position: relative;
+}
+
+.post-label{
+	padding: 5px 10px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	color: #fff;
+	border-radius: 0 0 0 10px;
+}
+
+.post-label-video{
+	background: #e10000;
+}
+
+.post-label-project{
+	background: #00b600;
+}
+
+.rel{
+	position: relative;
+}
+
+.rel:before{
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.rel-16-9:before{
+	padding-top: 56.25%;
+}
+
+.rel__content{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.rel__content iframe{
+	border: none;
+	width: 100%;
+	height: 100%;
+}
+
+.post-project-info{
+	margin-bottom: 1.5rem;
+	width: 100%;
+}
+
+.post-project-info td{
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	border-collapse: collapse;
+	padding: 5px 10px;
+}
+
+.post-project-info-title{
+	font-weight: bold;
+}

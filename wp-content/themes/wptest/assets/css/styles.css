@@ -256,35 +256,35 @@ em {
     vertical-align: middle;
 }
 
-.pagination {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 15px;
-}
+/*.pagination {*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*    margin-bottom: 15px;*/
+/*}*/
 
-.pagination nav a {
-    color: #909090;
-    text-decoration: none;
-}
+/*.pagination nav a {*/
+/*    color: #909090;*/
+/*    text-decoration: none;*/
+/*}*/
 
-.pagination nav a:hover {
-    color: #ffffff;
-    background: #bc8a59;
-    text-decoration: none;
-}
+/*.pagination nav a:hover {*/
+/*    color: #ffffff;*/
+/*    background: #bc8a59;*/
+/*    text-decoration: none;*/
+/*}*/
 
-.pagination nav a,
-.pagination nav span {
-    padding: 10px;
-    border: 1px solid rgba(184, 184, 184, 0.5);
-    border-radius: 5px;
+/*.pagination nav a,*/
+/*.pagination nav span {*/
+/*    padding: 10px;*/
+/*    border: 1px solid rgba(184, 184, 184, 0.5);*/
+/*    border-radius: 5px;*/
 
-}
+/*}*/
 
-.pagination nav span {
-    color: #bc8a59;
-    padding: 10px;
-}
+/*.pagination nav span {*/
+/*    color: #bc8a59;*/
+/*    padding: 10px;*/
+/*}*/
 
 .taxonomy_page_header {
     text-align: center;

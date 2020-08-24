@@ -19,4 +19,5 @@ add_action( 'wp_enqueue_scripts', static function () {
 	// CSS
 	wp_enqueue_style( 'reset', ( WPTEST_DIR_CSS . 'reset.css' ), [], WPTEST_THEME_VERSION );
 	wp_enqueue_style( 'style', ( WPTEST_DIR_CSS . 'styles.css' ), [], WPTEST_THEME_VERSION );
+	wp_enqueue_style( 'hw4-addon', ( WPTEST_DIR_CSS . 'hw4-addon.css' ), [], WPTEST_THEME_VERSION );
 } );
