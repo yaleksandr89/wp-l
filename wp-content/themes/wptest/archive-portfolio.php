@@ -15,10 +15,21 @@ get_header(); ?>
             <h1 class="customize_home_page_h1">
 				<?= ucfirst( get_queried_object()->rewrite['slug'] ) ?>
             </h1>
-			<?php get_template_part( 'template-parts/default-output-post' ); ?>
+            <div class="posts-flow layout-row">
+		        <?php if ( have_posts() ) : ?>
+			        <?php while ( have_posts() ) : ?>
+				        <?php the_post() ?>
+				        <?php get_template_part( 'template-parts/portfolio/flow/content', get_post_type() ); ?>
+			        <?php endwhile; ?>
+		        <?php else : ?>
+                    <p>Записи отсутствуют.</p>
+		        <?php endif; ?>
+            </div>
+	        <?php echo apply_filters( 'wptest_the_posts_pagination', [
+		        'class_no_active' => 'pagination-item',
+		        'class_active'    => 'pagination-item-current'
+	        ] ); ?>
         </main>
-        <aside class="layout-col layout-col-aside">
-			<?php get_template_part( 'template-parts/portfolio-sidebar' ); ?>
-        </aside>
+		<?php wptest_theme_sidebar( 'template-parts/sidebars/', 'portfolio' ) ?>
     </div>
 <?php get_footer();

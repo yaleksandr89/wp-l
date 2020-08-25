@@ -13,8 +13,7 @@ get_header(); ?>
     <div class="content-wrapper layout-row">
         <main class="layout-col layout-col-full">
             <?php the_post(); ?>
-            <h1><?php the_title() ?></h1>
-            <div><?php the_content() ?></div>
+            <?php get_template_part( 'template-parts/blog/single/content', get_post_type() ); ?>
         </main>
     </div>
 <?php get_footer(); ?>

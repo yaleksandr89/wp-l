@@ -41,10 +41,10 @@ add_action( 'after_setup_theme', static function () {
 		]
 	);
 	// Форматы постов
-	add_theme_support('post-formats', [
+	add_theme_support( 'post-formats', [
 		'aside',
 		'video',
-	]);
+	] );
 	// Поддержка блоков встраивания (embeds)
 	add_theme_support( 'responsive-embeds' );
 	// Поддержка навигационного меню
@@ -131,11 +131,21 @@ add_filter( 'the_content_more_link', '__return_empty_string' );
 add_filter( 'wptest_the_posts_pagination', static function ( $args ) {
 	ob_start();
 	the_posts_pagination( [
-		'prev_next' => $args['prev_next'] ?: false,
+		'prev_next' => isset( $args['prev_next'] ) ?: false,
 	] );
 	$default_pagination = ob_get_clean();
-	return str_replace( ["page-numbers","current"], [$args['class_no_active'],$args['class_active']], $default_pagination );
-});
+
+	return str_replace(
+		[
+			"page-numbers",
+			"current"
+		],
+		[
+			$args['class_no_active'],
+			$args['class_active']
+		],
+		$default_pagination );
+} );
 
 add_filter( 'navigation_markup_template', static function ( $template, $class ) {
 	return '
@@ -144,3 +154,16 @@ add_filter( 'navigation_markup_template', static function ( $template, $class ) 
 	</nav>
 	';
 }, 10, 2 );
+
+/*
+|--------------------------------------------------------------------------
+| Подключение сайдбара из поддиректории
+|--------------------------------------------------------------------------
+*/
+function wptest_theme_sidebar( $path, $name = '' ) {
+	do_action( 'get_sidebar', $name );
+	if ( $name ) {
+		$name = "-$name";
+	}
+	locate_template( $path . 'sidebar' . $name . '.php', true );
+}

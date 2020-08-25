@@ -1,6 +1,7 @@
 <?php
 /*
  *	Template Name: Для страницы контактов
+ *  Template Post Type: post, page
  */
 get_header(); ?>
     <div class="content-wrapper layout-row">

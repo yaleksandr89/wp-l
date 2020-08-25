@@ -1,6 +1,7 @@
 <?php
 /*
  *	Template Name: Для главной страницы
+ *  Template Post Type: post, page
  */
 get_header(); ?>
     <div class="content-wrapper layout-row">

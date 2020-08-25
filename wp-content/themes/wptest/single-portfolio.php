@@ -11,9 +11,10 @@
  */
 get_header(); ?>
     <div class="content-wrapper layout-row">
-		<?php get_template_part( 'template-parts/default-output-single-post' ); ?>
-        <aside class="layout-col layout-col-aside">
-			<?php get_template_part( 'template-parts/single-portfolio-sidebar' ); ?>
-        </aside>
+        <main class="layout-col layout-col-main">
+			<?php the_post(); ?>
+			<?php get_template_part( 'template-parts/portfolio/single/content', get_post_type() ); ?>
+        </main>
+		<?php wptest_theme_sidebar( 'template-parts/sidebars/', 'single-portfolio' ) ?>
     </div>
 <?php get_footer(); ?>
