@@ -1,4 +1,9 @@
 <article class="post-card layout-col">
+	<?php if ( has_term( 'post-format-aside', 'post_format') ): ?>
+        <div class="post-label post-label-project">New Project</div>
+	<?php elseif ( has_term( 'post-format-video', 'post_format') ): ?>
+        <div class="post-label post-label-video">New Video</div>
+	<?php endif; ?>
     <a href="<?php the_permalink(); ?>" class="post-card-link">
 		<?php the_post_thumbnail() ?>
     </a>

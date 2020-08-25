@@ -1,6 +1,6 @@
 <?php
 // Register taxonomy "Type work" for custom type
-$labels_taxonomy_work_type   = [
+$labels_taxonomy_work_type = [
 	'name'              => 'Тип работ',
 	'singular_name'     => 'Тип работы',
 	'search_items'      => 'Искать тип работы',
@@ -14,9 +14,13 @@ $labels_taxonomy_work_type   = [
 	'new_item_name'     => 'Новое имя типа работ',
 	'menu_name'         => 'Тип работы'
 ];
-$args_taxonomy_work_type = [
+$args_taxonomy_work_type   = [
 	'labels'  => $labels_taxonomy_work_type,
 	'public'  => true,
+	'rewrite' => [
+		'with_front' => false,
+		'slug'       => 'portfolio-type-work'
+	],
 ];
 
 // Register taxonomy "Clients" for custom type
@@ -36,7 +40,11 @@ $labels_taxonomy_clients = [
 ];
 $args_taxonomy_clients   = [
 	'labels'  => $labels_taxonomy_clients,
-	'public'  => true
+	'public'  => true,
+	'rewrite' => [
+		'with_front' => false,
+		'slug'       => 'portfolio-clients'
+	],
 ];
 register_taxonomy( 'type-work', [ 'portfolio' ], $args_taxonomy_work_type );
 register_taxonomy( 'clients', [ 'portfolio' ], $args_taxonomy_clients );

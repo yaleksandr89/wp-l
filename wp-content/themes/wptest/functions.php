@@ -167,3 +167,30 @@ function wptest_theme_sidebar( $path, $name = '' ) {
 	}
 	locate_template( $path . 'sidebar' . $name . '.php', true );
 }
+
+/*
+|--------------------------------------------------------------------------
+| Получение ID видеоролика (Youtube)
+|--------------------------------------------------------------------------
+*/
+function wptest_get_id_video_youtube( string $name_acf_field ) {
+	$youtube_acf = get_field( $name_acf_field );
+	$id_video    = '';
+	if ( filter_var( $youtube_acf, FILTER_VALIDATE_URL ) !== false ) {
+		$get_url_query = parse_url( $youtube_acf );
+		if ( strpos( $get_url_query['host'], 'youtube' ) ) {
+			parse_str(
+				$get_url_query['query'],
+				$query_params
+			);
+			$id_video = $query_params["v"];
+		} else {
+			$id_video = false;
+		}
+
+	} else {
+		$id_video = trim( $youtube_acf );
+	}
+
+	return $id_video;
+}

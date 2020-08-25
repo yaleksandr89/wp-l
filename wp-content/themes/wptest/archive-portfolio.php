@@ -19,7 +19,7 @@ get_header(); ?>
 		        <?php if ( have_posts() ) : ?>
 			        <?php while ( have_posts() ) : ?>
 				        <?php the_post() ?>
-				        <?php get_template_part( 'template-parts/portfolio/flow/content', get_post_type() ); ?>
+				        <?php get_template_part( 'template-parts/portfolio/flow/content', get_post_format() ); ?>
 			        <?php endwhile; ?>
 		        <?php else : ?>
                     <p>Записи отсутствуют.</p>

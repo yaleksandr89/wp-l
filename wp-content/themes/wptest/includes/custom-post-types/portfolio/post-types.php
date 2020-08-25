@@ -22,10 +22,13 @@ $args_portfolio   = [
 	'has_archive'   => true,
 	'menu_icon'     => 'dashicons-awards',
 	'menu_position' => 40,
-	'taxonomies' => [
+	'taxonomies'    => [
 		'type-work',
 		'clients'
-	]
+	],
+	'rewrite'       => [
+		'with_front' => false
+	],
 
 ];
 register_post_type( 'portfolio', $args_portfolio );
