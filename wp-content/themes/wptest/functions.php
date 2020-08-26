@@ -198,7 +198,7 @@ function wptest_get_id_video_youtube( string $name_acf_field ) {
 |--------------------------------------------------------------------------
 */
 function wptest_clear_height_width_yandex_map_script( string $name_acf_field ) {
-	$pattern = '%(width=[(0-9&amp;)]*)(height=[(0-9&amp;)]*)%';
+	$pattern = '%(width=[(0-9\%&amp;)]*)(height=[(0-9\%&amp;)]*)%';
 
 	return preg_replace( $pattern, '', get_field( $name_acf_field ) );
 }
