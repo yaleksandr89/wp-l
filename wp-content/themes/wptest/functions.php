@@ -179,11 +179,8 @@ function wptest_get_id_video_youtube( string $name_acf_field ) {
 	if ( filter_var( $youtube_acf, FILTER_VALIDATE_URL ) !== false ) {
 		$get_url_query = parse_url( $youtube_acf );
 		if ( strpos( $get_url_query['host'], 'youtube' ) ) {
-			parse_str(
-				$get_url_query['query'],
-				$query_params
-			);
-			$id_video = $query_params["v"];
+			preg_match( "%^(?:https?://)?(?:www\.|m\.)?(?:youtu\.be/|youtube(?:-nocookie)?\.com(?:/watch\?v=|/watch/\?v=|/embed/|/v/|/\S+&v=))([\w-]{10}[048AEIMQUYcgkosw]{1})($|\S+).*$%x", $youtube_acf, $matches );
+			$id_video = $matches[1];
 		} else {
 			$id_video = false;
 		}
@@ -193,4 +190,15 @@ function wptest_get_id_video_youtube( string $name_acf_field ) {
 	}
 
 	return $id_video;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Удаление height/width из скрипта для вставки ЯНдекс Карты
+|--------------------------------------------------------------------------
+*/
+function wptest_clear_height_width_yandex_map_script( string $name_acf_field ) {
+	$pattern = '%(width=[(0-9&amp;)]*)(height=[(0-9&amp;)]*)%';
+
+	return preg_replace( $pattern, '', get_field( $name_acf_field ) );
 }

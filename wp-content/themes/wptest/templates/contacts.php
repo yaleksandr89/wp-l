@@ -15,7 +15,7 @@ $acfFields = get_fields();
 					<?= $acfFields['txt_undex_yandex_map'] ?>
                 </div>
                 <div class="contacts-box-map">
-					<?= $acfFields['url_to_yandeks_map'] ?>
+					<?=  wptest_clear_height_width_yandex_map_script( 'url_to_yandeks_map' ) ?>
                 </div>
             </div>
             <h2>Contact form</h2>
