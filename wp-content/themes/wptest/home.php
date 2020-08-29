@@ -17,10 +17,7 @@ get_header(); ?>
             </h1>
             <div class="posts-flow layout-row">
 				<?php if ( have_posts() ) : ?>
-					<?php while ( have_posts() ) : ?>
-						<?php the_post() ?>
-							<?php get_template_part( 'template-parts/blog/flow/content', get_post_format() ); ?>
-					<?php endwhile; ?>
+					<?php get_template_part( 'template-parts/blog/flow/content', get_post_format() ); ?>
 				<?php else : ?>
                     <p>Записи отсутствуют.</p>
 				<?php endif; ?>

@@ -16,19 +16,16 @@ get_header(); ?>
                 Category «<?= get_queried_object()->name ?>»
             </h1>
             <div class="posts-flow layout-row">
-		        <?php if ( have_posts() ) : ?>
-			        <?php while ( have_posts() ) : ?>
-				        <?php the_post() ?>
-				        <?php get_template_part( 'template-parts/blog/flow/content', get_post_format() ); ?>
-			        <?php endwhile; ?>
-		        <?php else : ?>
+				<?php if ( have_posts() ) : ?>
+					<?php get_template_part( 'template-parts/blog/flow/content', get_post_format() ); ?>
+				<?php else : ?>
                     <p>Записи отсутствуют.</p>
-		        <?php endif; ?>
+				<?php endif; ?>
             </div>
-	        <?php echo apply_filters( 'wptest_the_posts_pagination', [
-		        'class_no_active' => 'pagination-item',
-		        'class_active'    => 'pagination-item-current'
-	        ] ); ?>
+			<?php echo apply_filters( 'wptest_the_posts_pagination', [
+				'class_no_active' => 'pagination-item',
+				'class_active'    => 'pagination-item-current'
+			] ); ?>
         </main>
     </div>
 <?php get_footer();
