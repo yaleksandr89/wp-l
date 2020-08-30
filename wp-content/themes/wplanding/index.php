@@ -17,7 +17,7 @@ get_header();
             <div class="posts-flow layout-row">
                 <p class="desc_404">Все таки добрался до сюда.</p>
                 <div class="img-wrapper">
-                    <img src="<?= WPTEST_DIR_iMAGES?>dont-do-that.jpg" alt="Don't do that!">
+                    <img src="<?= WPLANDING_DIR_iMAGES?>dont-do-that.jpg" alt="Don't do that!">
                 </div>
             </div>
         </main>
