@@ -80,84 +80,7 @@ get_header(); ?>
     <div class="features">
         <div class="wrapper">
             <div class="ftItems">
-                <div class="ftItem">
-                    <div class="ftItem__img"><img class="ftItem__icon" src=<?= WPLANDING_DIR_iMAGES ?>ftr-1.png"
-                                                  alt="res"></div>
-                    <div class="ftItem__box">
-                        <div class="ftItem__title">Responsive Design</div>
-                        <div class="ftItem__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incid idunt ut labore et dolore magn.
-                        </div>
-                        <div class="ftItem__meta"><a class="ftItem__link-more" href="#">Read more<i
-                                        class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div class="ftItem">
-                    <div class="ftItem__img"><img class="ftItem__icon" src=<?= WPLANDING_DIR_iMAGES ?>ftr-2.png" alt="">
-                    </div>
-                    <div class="ftItem__box">
-                        <div class="ftItem__title">Cross-Browser Support</div>
-                        <div class="ftItem__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incid idunt ut labore et dolore magn.
-                        </div>
-                        <div class="ftItem__meta"><a class="ftItem__link-more" href="#">Read more<i
-                                        class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div class="ftItem">
-                    <div class="ftItem__img"><img class="ftItem__icon" src=<?= WPLANDING_DIR_iMAGES ?>ftr-3.png" alt="">
-                    </div>
-                    <div class="ftItem__box">
-                        <div class="ftItem__title">Creative Design</div>
-                        <div class="ftItem__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incid idunt ut labore et dolore magn.
-                        </div>
-                        <div class="ftItem__meta"><a class="ftItem__link-more" href="#">Read more<i
-                                        class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div class="ftItem">
-                    <div class="ftItem__img"><img class="ftItem__icon" src=<?= WPLANDING_DIR_iMAGES ?>ftr-4.png" alt="">
-                    </div>
-                    <div class="ftItem__box">
-                        <div class="ftItem__title">Bootstrap 3.1</div>
-                        <div class="ftItem__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incid idunt ut labore et dolore magn.
-                        </div>
-                        <div class="ftItem__meta"><a class="ftItem__link-more" href="#">Read more<i
-                                        class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div class="ftItem">
-                    <div class="ftItem__img"><img class="ftItem__icon" src=<?= WPLANDING_DIR_iMAGES ?>ftr-5.png" alt="">
-                    </div>
-                    <div class="ftItem__box">
-                        <div class="ftItem__title">100 Icon Fonts</div>
-                        <div class="ftItem__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incid idunt ut labore et dolore magn.
-                        </div>
-                        <div class="ftItem__meta"><a class="ftItem__link-more" href="#">Read more<i
-                                        class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
-                <div class="ftItem">
-                    <div class="ftItem__img"><img class="ftItem__icon" src=<?= WPLANDING_DIR_iMAGES ?>ftr-6.png" alt="">
-                    </div>
-                    <div class="ftItem__box">
-                        <div class="ftItem__title">More Features</div>
-                        <div class="ftItem__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incid idunt ut labore et dolore magn.
-                        </div>
-                        <div class="ftItem__meta"><a class="ftItem__link-more" href="#">Read more<i
-                                        class="fa fa-angle-right" aria-hidden="true"></i></a></div>
-                    </div>
-                </div>
+	            <?php get_template_part( 'template-parts/blog/flow/content', 'features' ); ?>
             </div>
         </div>
     </div>
@@ -292,7 +215,7 @@ get_header(); ?>
         <div class="wrapper">
             <h2 class="blogTitle">From the blog</h2>
             <div class="blogItems">
-				<?php get_template_part( 'template-parts/blog/flow/content', 'front-page' ); ?>
+				<?php get_template_part( 'template-parts/blog/flow/content', 'articles' ); ?>
             </div>
             <div class="blogButtons">
                 <div class="btn btn-green p-0">

@@ -11,15 +11,15 @@
  */
 get_header();
 ?>
-    <div class="content-wrapper layout-row">
-        <main class="layout-col layout-col-taxonomy-page">
+    <div class="discover customize-404-page">
+        <div class="wrapper">
             <h1 class="header_404">index.php</h1>
-            <div class="posts-flow layout-row">
-                <p class="desc_404">Все таки добрался до сюда.</p>
-                <div class="img-wrapper">
-                    <img src="<?= WPLANDING_DIR_iMAGES?>dont-do-that.jpg" alt="Don't do that!">
-                </div>
+            <p class="desc_404">
+                Все таки добрался до сюда.
+            </p>
+            <div class="img-wrapper gif-pos">
+                <img src="<?= WPLANDING_DIR_iMAGES?>dont-do-that.jpg" alt="Don't do that!">
             </div>
-        </main>
+        </div>
     </div>
 <?php get_footer();

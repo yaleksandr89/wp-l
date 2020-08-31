@@ -900,6 +900,16 @@ h2, .h2 {
     text-align: center;
 }
 
+.customize-404-page {
+    text-align: center;
+}
+
+.header_404 {
+    font-size: 35px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
 .pacBtn {
     width: 100%;
     max-width: 250px;

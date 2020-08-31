@@ -5,14 +5,20 @@
  * @url https://wp-kama.ru/function/register_taxonomy
  */
 
-// Пользовательский тип записи: "Портфолио"
+// Пользовательский тип записи: "Отзывы"
 function wptest_init_reviews() {
 	include 'reviews/post-types.php';
 }
 
+// Пользовательский тип записи: "Слайдеры"
 function wptest_init_sliders() {
 	include 'sliders/post-types.php';
 	include 'sliders/taxonomies.php';
+}
+
+// Пользовательский тип записи: "Особенности"
+function wptest_init_features() {
+	include 'features/post-types.php';
 }
 
 /**
@@ -23,6 +29,7 @@ function wptest_init_sliders() {
  */
 add_action( 'init', 'wptest_init_reviews' );
 add_action( 'init', 'wptest_init_sliders' );
+add_action( 'init', 'wptest_init_features' );
 
 /**
  * Добавление колонок к пользовательским типам данным
