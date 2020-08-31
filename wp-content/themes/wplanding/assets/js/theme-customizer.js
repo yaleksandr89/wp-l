@@ -1,5 +1,56 @@
 (function ($) {
     var api = wp.customize;
+    // >>> Блок "Преимущества" (.advantages) //
+    // 1 Секция
+    api('block_advantages_1_img', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_1_img').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_advantages_1_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_1_title').text(new_value);
+        })
+    });
+    api('block_advantages_1_desc', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_1_desc').text(new_value);
+        })
+    });
+    // 2 Секция
+    api('block_advantages_2_img', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_2_img').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_advantages_2_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_2_title').text(new_value);
+        })
+    });
+    api('block_advantages_2_desc', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_2_desc').text(new_value);
+        })
+    });
+    // 3 Секция
+    api('block_advantages_3_img', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_3_img').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_advantages_3_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_3_title').text(new_value);
+        })
+    });
+    api('block_advantages_3_desc', function (value) {
+        value.bind(function (new_value) {
+            $('#block_advantages_3_desc').text(new_value);
+        })
+    });
+    // Блок "Преимущества" (.advantages) <<< //
+
     // >>> Блок "Статистика" (.stats) //
     // 1 Секция
     api('block_stats_1_img', function (value) {

@@ -17,6 +17,9 @@ include_once( __DIR__ . '/parts/footer.php' );
 // Кастомизация блока "Статистика (.stats) на главной страницу"
 include_once( __DIR__ . '/parts/front-page-stat.php' );
 
+// Кастомизация блока "Преимущества (.advantages) на главной страницу"
+include_once( __DIR__ . '/parts/front-page-advantages.php' );
+
 /**
  * Изменение в режиме реального времени (JS)
  *
