@@ -15,7 +15,7 @@ add_filter( 'wplanding_get_blog_articles', static function ( $count_article ) {
 			'link'      => get_permalink( $article ),
 			'thumbnail' => get_the_post_thumbnail( $article->ID, 'thumbnail', [
 				'class' => 'blogItem__img',
-				'alt'   => get_the_title()
+				'alt'   => get_the_title($article)
 			] ),
 			'excerpt'   => get_field( 'preview_article', $article ),
 			'author'    => get_the_author_meta( 'display_name', $article->post_author ),

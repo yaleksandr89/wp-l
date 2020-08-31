@@ -224,7 +224,7 @@ get_header(); ?>
             </div>
             <div class="blogButtons">
                 <div class="btn btn-green p-0">
-                    <a class="link_blog" href="<?= get_home_url('', 'blog') ?>">
+                    <a class="link_blog" href="<?= get_home_url( '', 'blog' ) ?>">
                         See all posts
                     </a>
                 </div>
@@ -328,49 +328,28 @@ get_header(); ?>
         </div>
     </section>
     <div class="botSlider">
+		<?php $reviews = apply_filters( 'wplanding_get_reviews', '', 10, 1 ); ?>
         <div class="sliderBot">
-            <div class="slider__team">
-                <div class="sliderBot__img"><img src=<?= WPLANDING_DIR_iMAGES ?>tom.png" alt="tom"
-                                                 class="sliderBot__photo"></div>
-                <div class="sliderBot__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Lorem ipsum dolor sit amet conse
-                    ctetur adipisicing elit.
-                </div>
-                <div class="sliderBot__title">Tom Cooper</div>
-                <div class="sliderBot__position">Designer</div>
-            </div>
-            <div class="slider__team">
-                <div class="sliderBot__img"><img src=<?= WPLANDING_DIR_iMAGES ?>tom.png" alt="tom"
-                                                 class="sliderBot__photo"></div>
-                <div class="sliderBot__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Lorem ipsum dolor sit amet conse
-                    ctetur adipisicing elit.
-                </div>
-                <div class="sliderBot__title">Tom Cooper</div>
-                <div class="sliderBot__position">Designer</div>
-            </div>
-            <div class="slider__team">
-                <div class="sliderBot__img"><img src=<?= WPLANDING_DIR_iMAGES ?>tom.png" alt="tom"
-                                                 class="sliderBot__photo"></div>
-                <div class="sliderBot__text">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Lorem ipsum dolor sit amet conse
-                    ctetur adipisicing elit.
-                </div>
-                <div class="sliderBot__title">Tom Cooper</div>
-                <div class="sliderBot__position">Designer</div>
-            </div>
+			<?php if ( $reviews ): ?>
+				<?php foreach ( $reviews as $review ): ?>
+                    <div class="slider__team">
+                        <div class="sliderBot__img">
+							<?= $review['thumbnail'] ?>
+                        </div>
+                        <div class="sliderBot__text">
+							<?= $review['content'] ?>
+                        </div>
+                        <div class="sliderBot__title"><?= $review['client'] ?></div>
+                        <div class="sliderBot__position">
+							<?php if ( is_array( $review['type_work'] ) ): ?>
+								<?= implode( ', ', $review['type_work'] ) ?>
+							<?php else: ?>
+								<?= $review['type_work'] ?>
+							<?php endif; ?>
+                        </div>
+                    </div>
+				<?php endforeach; ?>
+			<?php endif; ?>
         </div>
     </div>
 <?php get_footer();
