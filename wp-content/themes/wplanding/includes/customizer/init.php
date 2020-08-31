@@ -26,6 +26,9 @@ include_once( __DIR__ . '/parts/front-page-represent.php' );
 // Кастомизация блока "Открытие (.discover) на главной странице"
 include_once( __DIR__ . '/parts/front-page-discover.php' );
 
+// Кастомизация блока "Доступные предложения (.packages) на главной странице"
+include_once( __DIR__ . '/parts/front-page-packages.php' );
+
 /**
  * Изменение в режиме реального времени (JS)
  *

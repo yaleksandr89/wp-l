@@ -238,6 +238,177 @@
     });
     // Блок "Статистика" (.stats) <<< //
 
+    // >>> Блок "Открытые предложения" (.packages) //
+    api('block_packages_settings_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_settings_title').text(new_value);
+        })
+    });
+    api('block_packages_settings_a_txt', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_settings_a').text(new_value);
+        })
+    });
+    api('block_packages_settings_a_url', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_settings_a').attr('href', new_value);
+        })
+    });
+    // Services #1
+    api('block_packages_1_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_title').text(new_value);
+        })
+    });
+    api('block_packages_1_price_start', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_price_start').text(new_value);
+        })
+    });
+    api('block_packages_1_price_middle', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_price_middle').text(new_value);
+        })
+    });
+    api('block_packages_1_price_end', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_price_end').text(new_value);
+        })
+    });
+    api('block_packages_1_header_service_1', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_header_service_1').text(new_value);
+        })
+    });
+    api('block_packages_1_header_service_2', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_header_service_2').text(new_value);
+        })
+    });
+    api('block_packages_1_header_service_3', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_header_service_3').text(new_value);
+        })
+    });
+    api('block_packages_1_header_service_4', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_header_service_4').text(new_value);
+        })
+    });
+    api('block_packages_1_header_service_5', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_header_service_5').text(new_value);
+        })
+    });
+    api('block_packages_1_header_service_6', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_1_header_service_6').text(new_value);
+        })
+    });
+    // Services #2
+    api('block_packages_2_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_title').text(new_value);
+        })
+    });
+    api('block_packages_2_price_start', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_price_start').text(new_value);
+        })
+    });
+    api('block_packages_2_price_middle', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_price_middle').text(new_value);
+        })
+    });
+    api('block_packages_2_price_end', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_price_end').text(new_value);
+        })
+    });
+    api('block_packages_2_header_service_1', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_header_service_1').text(new_value);
+        })
+    });
+    api('block_packages_2_header_service_2', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_header_service_2').text(new_value);
+        })
+    });
+    api('block_packages_2_header_service_3', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_header_service_3').text(new_value);
+        })
+    });
+    api('block_packages_2_header_service_4', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_header_service_4').text(new_value);
+        })
+    });
+    api('block_packages_2_header_service_5', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_header_service_5').text(new_value);
+        })
+    });
+    api('block_packages_2_header_service_6', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_2_header_service_6').text(new_value);
+        })
+    });
+    // Services #3
+    api('block_packages_3_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_title').text(new_value);
+        })
+    });
+    api('block_packages_3_price_start', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_price_start').text(new_value);
+        })
+    });
+    api('block_packages_3_price_middle', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_price_middle').text(new_value);
+        })
+    });
+    api('block_packages_3_price_end', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_price_end').text(new_value);
+        })
+    });
+    api('block_packages_3_header_service_1', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_header_service_1').text(new_value);
+        })
+    });
+    api('block_packages_3_header_service_2', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_header_service_2').text(new_value);
+        })
+    });
+    api('block_packages_3_header_service_3', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_header_service_3').text(new_value);
+        })
+    });
+    api('block_packages_3_header_service_4', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_header_service_4').text(new_value);
+        })
+    });
+    api('block_packages_3_header_service_5', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_header_service_5').text(new_value);
+        })
+    });
+    api('block_packages_3_header_service_6', function (value) {
+        value.bind(function (new_value) {
+            $('#block_packages_3_header_service_6').text(new_value);
+        })
+    });
+    // Блок "Открытые предложения" (.packages) <<< //
+
     // >>> ПОДВАЛ //
     // facebook
     api('footer_facebook_link', function (value) {

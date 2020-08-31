@@ -11,7 +11,7 @@ add_action( 'customize_register', static function ( WP_Customize_Manager $wp_cus
 			$panel_main_page,
 			[
 				'title'    => 'Подвал (Социальные сети)',
-				'priority' => 999,
+				'priority' => 1000,
 			]
 		);
 		// Facebook
