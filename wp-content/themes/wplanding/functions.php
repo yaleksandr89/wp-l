@@ -16,6 +16,7 @@ include_once __DIR__ . '/includes/functions-modules/css-js.php';
 include_once __DIR__ . '/includes/functions-modules/menu.php';
 include_once __DIR__ . '/includes/functions-modules/get-articles.php';
 include_once __DIR__ . '/includes/functions-modules/get-reviews.php';
+include_once __DIR__ . '/includes/functions-modules/get-sliders.php';
 include_once __DIR__ . '/includes/customizer/init.php';
 include_once __DIR__ . '/includes/custom-post-types/init.php';
 
