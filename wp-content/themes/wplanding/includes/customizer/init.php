@@ -20,6 +20,9 @@ include_once( __DIR__ . '/parts/front-page-stat.php' );
 // Кастомизация блока "Преимущества (.advantages) на главной страницу"
 include_once( __DIR__ . '/parts/front-page-advantages.php' );
 
+// Кастомизация блока "Преимущества (.advantages) на главной страницу"
+include_once( __DIR__ . '/parts/front-page-represent.php' );
+
 /**
  * Изменение в режиме реального времени (JS)
  *

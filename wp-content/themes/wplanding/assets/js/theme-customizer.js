@@ -1,5 +1,67 @@
 (function ($) {
     var api = wp.customize;
+    // >>> Блок "Представления" (.represent) //
+    // Секция "Настроки блока"
+    api('block_represent_setting_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_setting_title').text(new_value);
+        })
+    });
+    api('block_represent_setting_description', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_setting_description').text(new_value);
+        })
+    });
+    // 1 Секция
+    api('block_represent_1_img', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_1_img').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_represent_1_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_1_title').text(new_value);
+        })
+    });
+    api('block_represent_1_desc', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_1_desc').text(new_value);
+        })
+    });
+    // 2 Секция
+    api('block_represent_2_img', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_2_img').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_represent_2_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_2_title').text(new_value);
+        })
+    });
+    api('block_represent_2_desc', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_2_desc').text(new_value);
+        })
+    });
+    // 3 Секция
+    api('block_represent_3_img', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_3_img').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_represent_3_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_3_title').text(new_value);
+        })
+    });
+    api('block_represent_3_desc', function (value) {
+        value.bind(function (new_value) {
+            $('#block_represent_3_desc').text(new_value);
+        })
+    });
+    // Блок "Представления" (.represent) <<< //
+
     // >>> Блок "Преимущества" (.advantages) //
     // 1 Секция
     api('block_advantages_1_img', function (value) {
