@@ -1,6 +1,6 @@
 <?php
 /**
- * The front page template file
+ * The single page template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -10,13 +10,10 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  */
 get_header(); ?>
-    <section>
+    <section class="blog">
         <div class="wrapper">
-	        <?php if ( have_posts() ) : ?>
-		        <?php get_template_part( 'template-parts/blog/flow/content', get_post_format() ); ?>
-	        <?php else : ?>
-                <p>Записи отсутствуют.</p>
-	        <?php endif; ?>
+			<?php the_post(); ?>
+			<?php get_template_part( 'template-parts/blog/single/content', get_post_format() ); ?>
         </div>
     </section>
 <?php get_footer(); ?>

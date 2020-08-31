@@ -8,6 +8,33 @@
  * @version 1.0
  */
 
+add_action( 'after_setup_theme', static function () {
+	// Поддержка миниатюр
+	add_theme_support( 'post-thumbnails' );
+	// Возможномсть менять <title> (wp_title())
+	add_theme_support( 'title-tag' );
+	// Поддержка HTML5 разметки
+	add_theme_support(
+		'html5',
+		[
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+			'script',
+			'style',
+		]
+	);
+	// Форматы постов
+	add_theme_support( 'post-formats', [
+		'aside',
+		'video',
+	] );
+	// Поддержка блоков встраивания (embeds)
+	add_theme_support( 'responsive-embeds' );
+} );
+
 // Ограничение количества ревизий
 add_filter( 'wp_revisions_to_keep', static function ( $revisions ) {
 	return 3;

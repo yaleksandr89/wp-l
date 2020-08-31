@@ -8,6 +8,14 @@
  * @version 1.0
  */
 
+// Поддержка функционала статей
+add_action( 'after_setup_theme', static function () {
+	// Поддержка миниатюр
+	add_theme_support( 'post-thumbnails' );
+	// Возможномсть менять <title> (wp_title())
+	add_theme_support( 'title-tag' );
+});
+
 // Ограничение количества ревизий
 add_filter( 'wp_revisions_to_keep', static function ( $revisions ) {
 	return 3;
