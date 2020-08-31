@@ -62,6 +62,64 @@
     });
     // Блок "Представления" (.represent) <<< //
 
+    // >>> Блок "Открытие" (.discover) //
+    api('block_discover_title', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_title').text(new_value);
+        })
+    });
+    api('block_discover_image', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_image').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_discover_description', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_description').text(new_value);
+        })
+    });
+    api('block_discover_image_icons_1', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_image_icons_1').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_discover_title_icons_1', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_title_icons_1').text(new_value);
+        })
+    });
+    api('block_discover_image_icons_2', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_image_icons_2').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_discover_title_icons_2', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_title_icons_2').text(new_value);
+        })
+    });
+    api('block_discover_image_icons_3', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_image_icons_3').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_discover_title_icons_3', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_title_icons_3').text(new_value);
+        })
+    });
+    api('block_discover_image_icons_4', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_image_icons_4').attr('src', window.WPLANDING_DIR_iMAGES.url + new_value);
+        })
+    });
+    api('block_discover_title_icons_4', function (value) {
+        value.bind(function (new_value) {
+            $('#block_discover_title_icons_4').text(new_value);
+        })
+    });
+    // Блок "Открытие" (.discover) <<< //
+
     // >>> Блок "Преимущества" (.advantages) //
     // 1 Секция
     api('block_advantages_1_img', function (value) {

@@ -14,14 +14,17 @@ add_action( 'customize_register', static function ( WP_Customize_Manager $wp_cus
 // Кастомизация "Подвала"
 include_once( __DIR__ . '/parts/footer.php' );
 
-// Кастомизация блока "Статистика (.stats) на главной страницу"
+// Кастомизация блока "Статистика (.stats) на главной странице"
 include_once( __DIR__ . '/parts/front-page-stat.php' );
 
-// Кастомизация блока "Преимущества (.advantages) на главной страницу"
+// Кастомизация блока "Преимущества (.advantages) на главной странице"
 include_once( __DIR__ . '/parts/front-page-advantages.php' );
 
-// Кастомизация блока "Преимущества (.advantages) на главной страницу"
+// Кастомизация блока "Преимущества (.advantages) на главной странице"
 include_once( __DIR__ . '/parts/front-page-represent.php' );
+
+// Кастомизация блока "Открытие (.discover) на главной странице"
+include_once( __DIR__ . '/parts/front-page-discover.php' );
 
 /**
  * Изменение в режиме реального времени (JS)
@@ -46,4 +49,4 @@ add_action( 'wp_enqueue_scripts', static function () {
 	wp_localize_script( 'theme_customizer_live_js', 'WPLANDING_DIR_iMAGES', [
 		'url' => WPLANDING_DIR_iMAGES,
 	] );
-});
+} );

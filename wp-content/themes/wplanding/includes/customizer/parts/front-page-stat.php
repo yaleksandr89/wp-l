@@ -11,7 +11,7 @@ add_action( 'customize_register', static function ( WP_Customize_Manager $wp_cus
 			$panel_main_page,
 			[
 				'title'    => 'Главная страница (Статистика)',
-				'priority' => 998,
+				'priority' => 999,
 			]
 		);
 		// Sub-block #1
