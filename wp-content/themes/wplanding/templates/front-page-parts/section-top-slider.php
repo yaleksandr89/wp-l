@@ -5,7 +5,7 @@
 			<?php foreach ( $front_slider as $slider ): ?>
 				<div class="slider__sale">
 					<div class="slider__slogan-1"><?= $slider['slogan_1'] ?></div>
-					<div class="slider__slogan-2"><?= $slider['slogan_2'] ?>fast with us!</div>
+					<div class="slider__slogan-2"><?= $slider['slogan_2'] ?></div>
 					<div class="slider__blogButtons">
 						<div class="btn btn-green p-0">
 							<a class="link_blog" href="<?= $slider['ssylka_zelenoj_knopki'] ?>">
