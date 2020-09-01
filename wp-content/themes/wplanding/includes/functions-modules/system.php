@@ -107,6 +107,30 @@ add_action( 'phpmailer_init', static function ( PHPMailer $phpmailer ) {
 
 /*
 |--------------------------------------------------------------------------
+| Получение ID видеоролика (Youtube)
+|--------------------------------------------------------------------------
+*/
+function wptest_get_id_video_youtube( string $name_acf_field ) {
+	$youtube_acf = get_field( $name_acf_field );
+	$id_video    = '';
+	if ( filter_var( $youtube_acf, FILTER_VALIDATE_URL ) !== false ) {
+		$get_url_query = parse_url( $youtube_acf );
+		if ( strpos( $get_url_query['host'], 'youtube' ) ) {
+			preg_match( "%^(?:https?://)?(?:www\.|m\.)?(?:youtu\.be/|youtube(?:-nocookie)?\.com(?:/watch\?v=|/watch/\?v=|/embed/|/v/|/\S+&v=))([\w-]{10}[048AEIMQUYcgkosw]{1})($|\S+).*$%x", $youtube_acf, $matches );
+			$id_video = $matches[1];
+		} else {
+			$id_video = false;
+		}
+
+	} else {
+		$id_video = trim( $youtube_acf );
+	}
+
+	return $id_video;
+}
+
+/*
+|--------------------------------------------------------------------------
 | Транслитерация кириллицы в латиницу
 |--------------------------------------------------------------------------
 */

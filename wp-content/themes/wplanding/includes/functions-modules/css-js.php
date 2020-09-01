@@ -26,3 +26,12 @@ add_action( 'wp_enqueue_scripts', static function () {
 	wp_enqueue_style( 'magnific-popup', ( WPLANDING_DIR_CSS . 'magnific-popup.css' ), [], WPLANDING_THEME_VERSION );
 	wp_enqueue_style( 'main', ( WPLANDING_DIR_CSS . 'style.css' ), [], WPLANDING_THEME_VERSION );
 } );
+
+// AJAX variable
+add_action( 'wp_enqueue_scripts', static function () {
+	wp_localize_script( 'main', '_GLOBAL',
+		[
+			'ajaxurl' => admin_url( 'admin-ajax.php' )
+		],
+	);
+}, 99 );

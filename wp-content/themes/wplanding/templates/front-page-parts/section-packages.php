@@ -248,30 +248,23 @@
             </div>
         </div>
     </div>
-    <!-- form itself -->
+    <!-- Contact form -->
     <form id="form-request" class="mfp-hide white-popup-block">
         <h1 class="form-request-header">Contact us</h1>
         <p class="form-request-desc">
-            Lightbox has an option to automatically focus on the first input. It's strongly recommended to use <code>inline</code>
-            popup type for lightboxes with form instead of <code>ajax</code> (to keep entered data if the user
-            accidentally refreshed the page).
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
         </p>
         <div class="form-group">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" class="form-control" placeholder="Name" required="">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" class="form-control" placeholder="example@domain.com" required="">
+            <input id="name" name="name" type="text" class="form-control" placeholder="Name" required>
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" class="form-control" placeholder="Eg. +447500000000" required="">
-        </div>
-        <div class="form-group">
-            <label for="textarea">Message</label><br>
-            <textarea id="textarea" class="form-control"></textarea>
+            <input id="phone" name="phone" type="text" class="form-control" placeholder="Eg. +447500000000" required>
         </div>
         <button type="submit" class="btn-bs btn-green">Submit</button>
+        <p class="form-error" style="color: red; margin-top: 15px; font-size: 20px; text-align: center"></p>
     </form>
 </section>

@@ -28,8 +28,8 @@ $(function () {
         // When elemened is focused, some mobile browsers in some cases zoom in
         // It looks not nice, so we disable it:
         callbacks: {
-            beforeOpen: function() {
-                if($(window).width() < 700) {
+            beforeOpen: function () {
+                if ($(window).width() < 700) {
                     this.st.focus = false;
                 } else {
                     this.st.focus = '#name';
@@ -37,4 +37,34 @@ $(function () {
             }
         }
     });
+
+    $('#form-request').on('submit', function (event) {
+        event.preventDefault();
+
+        var $form = $(this);
+        var $name = $form.find('#name').val();
+        var $phone = $form.find('#phone').val();
+
+        $.ajax({
+            method: 'POST',
+            url: window._GLOBAL.ajaxurl,
+            data: {
+                action: 'request_form',
+                name: $name,
+                phone: $phone
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response.result) {
+                    $form.html('Request has be send!');
+                } else {
+                    $form.find('.form-error').html(response.error);
+                }
+            },
+            error: function (error) {
+                $form.find('.form-error').html(error);
+            }
+        });
+    });
+
 });

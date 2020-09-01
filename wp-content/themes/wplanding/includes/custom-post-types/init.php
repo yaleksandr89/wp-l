@@ -21,6 +21,11 @@ function wptest_init_features() {
 	include 'features/post-types.php';
 }
 
+// Пользовательский тип записи: "Заявки"
+function wptest_init_form_request() {
+	include 'form-request/post-types.php';
+}
+
 /**
  * Регистрация пользовательских типов записи
  * @url1: https://wp-kama.ru/function/register_post_type
@@ -30,6 +35,7 @@ function wptest_init_features() {
 add_action( 'init', 'wptest_init_reviews' );
 add_action( 'init', 'wptest_init_sliders' );
 add_action( 'init', 'wptest_init_features' );
+add_action( 'init', 'wptest_init_form_request' );
 
 /**
  * Добавление колонок к пользовательским типам данным
