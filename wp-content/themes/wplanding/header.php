@@ -26,8 +26,6 @@
                 <div class="headerLeft__logoName2">joomla theme</div>
             </div>
             <div class="headerRight">
-
-
 				<?php
 				wp_nav_menu( [
 					'theme_location'  => 'landing-nav',
@@ -37,7 +35,7 @@
 					'items_wrap'      => '<div class="navMenu__hide">Menu</div><ul class="navMenu__block">%3$s
                                             <li class="navMenu__list navMenu__list--search">
                                                 <form action="#" method="get" class="navMenu__form">
-                    								<input class="navMenu__formInput" type="text" placeholder="what are we looking for?" name="search">
+                    								<input class="navMenu__formInput" type="text" placeholder="what are we looking for?" name="s" value="">
 					                    		</form><i class="fa fa-search" aria-hidden="true"></i>
 						                    </li></ul>',
 				] );
